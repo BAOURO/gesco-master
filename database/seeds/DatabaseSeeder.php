@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,9 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         $this->call(LaratrustSeeder::class);
-
+        $this->call(UsersTableSeeder::class);
+        $this->call(PaysTableSeeder::class);
+        $this->call(RegionsTableSeeder::class);
+        $this->call(DepartementsTableSeeder::class);
+        $this->call(CyclesTableSeeder::class);
+        $this->call(MentionsTableSeeder::class);
+        $this->call(ParcoursTableSeeder::class);
+        $this->call(NiveauxTableSeeder::class);
 
     }
 }

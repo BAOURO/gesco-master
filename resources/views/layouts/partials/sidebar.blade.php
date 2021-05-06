@@ -38,26 +38,26 @@
             <span>{{ __('About') }}</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Nav::isRoute('cycles.index') }}">
+        <a class="nav-link" href="{{ route('cycles.index') }}">
             <i class="fas fa-fw fa-briefcase "></i>
             <span>{{ __('Cycles') }}</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Nav::isRoute('mentions.index') }}">
+        <a class="nav-link" href="{{route('mentions.index')}}">
             <i class="fas fa-fw fa-hands-helping"></i>
             <span>{{ __('Mentions') }}</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Nav::isRoute('parcours.index') }}">
+        <a class="nav-link" href="{{route('parcours.index')}}">
             <i class="fas fa-fw fa-sitemap"></i>
             <span>{{ __('Parcours') }}</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
+        <a class="nav-link" href="{{route('niveaux.index')}}">
             <i class="fas fa-fw fa-building-o "></i>
             <span>{{ __('Niveaux') }}</span>
         </a>

@@ -4,13 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Laravel SB Admin 2">
-    <meta name="author" content="Alejandro RH">
+    <meta name="description" content="GESCO ENSAI">
+    <meta name="author" content="DAOUDA">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'GESCO') }}</title>
 
     <!-- Fonts -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -22,6 +22,7 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
 </head>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -43,9 +44,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 @yield('main-content')
-
             </div>
             <!-- /.container-fluid -->
 
@@ -53,7 +52,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        @include('layouts.partials.footer')
+            @include('layouts.partials.footer')
         <!-- End of Footer -->
 
     </div>
@@ -67,12 +66,12 @@
 </a>
 
 <!-- Logout Modal-->
-@include('layouts.partials.logout')
+    @include('layouts.partials.logout')
 
-<!-- Scripts -->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 </body>
 </html>
