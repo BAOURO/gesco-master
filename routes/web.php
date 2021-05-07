@@ -2,13 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\PaysController;
-use App\Http\Controllers\RegionController;
-use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\CycleController;
-use App\Http\Controllers\MentionController;
-use App\Http\Controllers\ParcoursController;
-use App\Http\Controllers\NiveauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +30,11 @@ Route::get('/about', function () {
 })->name('about');
 
 
-Route::resource('cycles', CycleController::class);
-Route::resource('mentions', MentionController::class);
-Route::resource('parcours', ParcoursController::class);
-Route::resource('niveaux', NiveauController::class);
-Route::resource('pays', PaysController::class);
-Route::resource('regions', RegionController::class);
-Route::resource('departements', DepartementController::class);
+Route::get('/cycles', ['App\Http\Controllers\CycleController', 'index'])->name('cycles.index');
+Route::get('/mentions', ['App\Http\Controllers\MentionController', 'index'])->name('mentions.index');
+Route::get('/parcours', ['App\Http\Controllers\ParcoursController', 'index'])->name('parcours.index');
+Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
+
+/*Route::resource('/pays', App\Http\Controllers\PaysController::class);
+Route::resource('/regions', App\Http\Controllers\RegionController::class);
+Route::resource('/departements', App\Http\Controllers\DepartementController::class);*/

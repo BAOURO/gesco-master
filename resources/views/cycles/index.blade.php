@@ -27,12 +27,12 @@
                                     @foreach ($cycles as $cycle)
                                     <tr>
                                         <td>{{$cycle->id}}</td>
-                                        <td>{{$cyle->nom}}</td>
+                                        <td>{{$cycle->nom}}</td>
                                         <td>{{$cycle->abreviation}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>
                                             <button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i></button>
-                                            <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
+                                            <button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>
+                                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
                                         </td>
                                     </tr>
                                     @endforeach

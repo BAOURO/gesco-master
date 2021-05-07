@@ -15,7 +15,7 @@ class CycleController extends Controller
     public function index()
     {
         $cycles = Cycle::all();
-        return view('cycles.index');
+        return view('cycles.index', compact('cycles'));
     }
 
     /**

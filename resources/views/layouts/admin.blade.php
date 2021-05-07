@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/css/dataTables.responsive.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
@@ -73,5 +75,8 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/js/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/js/dataTables.bootstrap.min.js') }}"></script>
 </body>
 </html>

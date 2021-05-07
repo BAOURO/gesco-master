@@ -14,7 +14,8 @@ class MentionController extends Controller
      */
     public function index()
     {
-        //
+        $mentions = Mention::all();
+        return view('mentions.index', compact('mentions'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MentionController extends Controller
      */
     public function create()
     {
-        //
+        return view('mentions.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class MentionController extends Controller
      */
     public function show(Mention $mention)
     {
-        //
+        return view('mentions.show', compact('mention'));
     }
 
     /**
@@ -57,7 +58,7 @@ class MentionController extends Controller
      */
     public function edit(Mention $mention)
     {
-        //
+        return view('mentions.edit', compact('mention'));
     }
 
     /**
@@ -80,6 +81,7 @@ class MentionController extends Controller
      */
     public function destroy(Mention $mention)
     {
-        //
+        $mention->delete();
+        return redirect()->back();
     }
 }
