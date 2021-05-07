@@ -62,6 +62,12 @@
             <span>{{ __('Niveaux') }}</span>
         </a>
     </li>
+    <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
+        <a class="nav-link" href="{{route('notes.index')}}">
+            <i class="fas fa-fw fa-list"></i>
+            <span>{{ __('Notes') }}</span>
+        </a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

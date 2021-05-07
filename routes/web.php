@@ -34,6 +34,7 @@ Route::get('/cycles', ['App\Http\Controllers\CycleController', 'index'])->name('
 Route::get('/mentions', ['App\Http\Controllers\MentionController', 'index'])->name('mentions.index');
 Route::get('/parcours', ['App\Http\Controllers\ParcoursController', 'index'])->name('parcours.index');
 Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
+Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 
 /*Route::resource('/pays', App\Http\Controllers\PaysController::class);
 Route::resource('/regions', App\Http\Controllers\RegionController::class);
