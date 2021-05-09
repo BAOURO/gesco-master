@@ -35,6 +35,8 @@ Route::get('/mentions', ['App\Http\Controllers\MentionController', 'index'])->na
 Route::get('/parcours', ['App\Http\Controllers\ParcoursController', 'index'])->name('parcours.index');
 Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
+Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
+Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
 
 /*Route::resource('/pays', App\Http\Controllers\PaysController::class);
 Route::resource('/regions', App\Http\Controllers\RegionController::class);

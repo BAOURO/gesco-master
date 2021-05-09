@@ -38,6 +38,24 @@
             <span>{{ __('About') }}</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Etudiants</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Ajouter</a>
+                <a class="collapse-item" href="{{ route('inscriptions.niveau') }}">Inscription niveau</a>
+                <a class="collapse-item" href="forgot-password.html">Inscription Evaluation</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item" href="blank.html">Blank Page</a>
+            </div>
+        </div>
+    </li>
     <li class="nav-item {{ Nav::isRoute('cycles.index') }}">
         <a class="nav-link" href="{{ route('cycles.index') }}">
             <i class="fas fa-fw fa-briefcase "></i>

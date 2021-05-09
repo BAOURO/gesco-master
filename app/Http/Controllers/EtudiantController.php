@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Niveau;
 use Illuminate\Http\Request;
-
-class NiveauController extends Controller
+use Illuminate\Support\Facades\DB;
+class EtudiantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class NiveauController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Niveau  $niveau
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Niveau $niveau)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class NiveauController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Niveau  $niveau
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Niveau $niveau)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class NiveauController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Niveau  $niveau
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Niveau $niveau)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,24 +74,26 @@ class NiveauController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Niveau  $niveau
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Niveau $niveau)
+    public function destroy($id)
     {
         //
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Niveau  $niveau
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function inscriptions()
+    public function getEtudiants(Request $request)
     {
-        //
-        return view('niveaux.inscriptions');
+        $input = $request->all();
+        $etudiants = DB::table('etudiants')
+            ->select('etudiants.*')
+            ->get();
+        return response()->json(['success'=>$etudiants]);
     }
 }
