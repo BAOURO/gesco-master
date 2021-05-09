@@ -38,6 +38,14 @@ Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.
 Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
 
+//gestion des annees academiques
+Route::get('/annees_create', '\App\Http\Controllers\AnneeController@index')->name('annees.index');
+Route::get('/list_annees', '\App\Http\Controllers\AnneeController@show')->name('annees.list');
+Route::post('/annees_create', '\App\Http\Controllers\AnneeController@store')->name('annees.create');
+
+
+
+
 /*Route::resource('/pays', App\Http\Controllers\PaysController::class);
 Route::resource('/regions', App\Http\Controllers\RegionController::class);
 Route::resource('/departements', App\Http\Controllers\DepartementController::class);*/

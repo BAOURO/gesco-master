@@ -8,11 +8,11 @@
     
     <div class="col-md-6">
         <div class="form-group focused">
-            <label class="form-control-label" for="evaluation">Evaluation</label>
+            <label class="form-control-label" for="evaluation">Annee</label>
             <select id="evaluation" class="form-control" name="evaluation">
-                <option disabled>Evaluations</option>
-                @foreach($evaluations as $key)
-                    <option value="{{$key->id}}">{{ $key->abreviation}}</option>
+                <option disabled>Annees</option>
+                @foreach($annees as $key)
+                    <option value="{{$key->id}}">{{ $key->annee}}</option>
                 @endforeach
             </select>
         </div>
@@ -21,9 +21,9 @@
         <div class="form-group focused">
             <label class="form-control-label" for="parcours">Parcours</label>
             <select id="parcours" class="form-control" name="parcours">
-                <option value="0">-- Parcours --</option>
-                @foreach($parcours as $key)
-                    <option value="{{$key->id}}">{{ $key->abreviation}}</option>
+                <option value="0">-- Niveaux --</option>
+                @foreach($niveaux as $key)
+                    <option value="{{$key->id}}">{{ $key->abreviation.', '.$key->nom}}</option>
                 @endforeach
             </select>
         </div>

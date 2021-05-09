@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Niveau;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\AnneeAcademiques;
 class NiveauController extends Controller
 {
     /**
@@ -93,6 +94,11 @@ class NiveauController extends Controller
     public function inscriptions()
     {
         //
-        return view('niveaux.inscriptions');
+        $niveaux = DB::table('niveaux')
+            ->join('parcours', 'parcours.id', '=', 'niveaux.parcour_id')
+            ->select('niveaux.*', 'parcours.abreviation')
+            ->get();
+        $annees = AnneeAcademiques::all();
+        return view('niveaux.inscriptions', compact('niveaux', 'annees'));
     }
 }
