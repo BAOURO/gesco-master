@@ -36,7 +36,15 @@ class MentionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required|string|min:3',
+            'cycle_id' => 'required|integer'
+        ]);
+        Mention::firstOrCreate(
+            $request->all()
+        );
+        return redirect()->route('mentions.index')->with('success', 'La mention a été ajouté avec success !!!');
     }
 
     /**

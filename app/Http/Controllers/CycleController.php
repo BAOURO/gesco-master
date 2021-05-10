@@ -15,7 +15,7 @@ class CycleController extends Controller
     public function index()
     {
         $cycles = Cycle::all();
-        return view('cycles.index', compact('cycles'));
+        return view('config.cycles.index', compact('cycles'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CycleController extends Controller
      */
     public function create()
     {
-        return view('cycles.create');
+        return view('config.cycles.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class CycleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required'
+        ]);
+        
+        $cycle = new Cycle();
+
+        $cycle->firstOrCreate([
+            'nom' => $request->input('nom'),
+            'abreviation' => $request->input('abreviation')
+        ]);
+
+        return redirect()->route('cycles.index')->with('success', 'Le cycle a été ajouté avec success !');
     }
 
     /**
@@ -47,7 +59,7 @@ class CycleController extends Controller
      */
     public function show(Cycle $cycle)
     {
-        return view('cycles.show', compact('cycle'));
+        return view('config.cycles.show', compact('cycle'));
     }
 
     /**
@@ -58,7 +70,7 @@ class CycleController extends Controller
      */
     public function edit(Cycle $cycle)
     {
-        //
+        return view('config.cycles.edit',  compact('cycle'));
     }
 
     /**
@@ -70,7 +82,17 @@ class CycleController extends Controller
      */
     public function update(Request $request, Cycle $cycle)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required|string|min:3'
+        ]);
+
+        $cycle->update([
+            'nom' => $request->input('nom'),
+            'abreviation' => $request->input('abreviation')
+        ]);
+
+        return redirect()->route('cycles.index')->with('success', 'Le cycle a été mise a jour !!!');
     }
 
     /**
@@ -81,6 +103,7 @@ class CycleController extends Controller
      */
     public function destroy(Cycle $cycle)
     {
-        //
+        $cycle->delete();
+        return back()->with('success', 'le cycle a été supprimé avec success !!!');
     }
 }
