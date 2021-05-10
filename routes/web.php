@@ -29,10 +29,33 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-
+/***Route des cycles */
 Route::get('/cycles', ['App\Http\Controllers\CycleController', 'index'])->name('cycles.index');
+Route::get('/cycles/create', ['App\Http\Controllers\CycleController', 'create'])->name('cycles.create');
+Route::post('/cycles', ['App\Http\Controllers\CycleController', 'store'])->name('cycles.store');
+Route::get('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'show'])->name('cycles.show');
+Route::get('/cycles/{cycle}/edit', ['App\Http\Controllers\CycleController', 'edit'])->name('cycles.edit');
+Route::patch('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'update'])->name('cycles.update');
+Route::delete('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'destroy'])->name('cycles.destroy');
+
+/**Route des mentions */
 Route::get('/mentions', ['App\Http\Controllers\MentionController', 'index'])->name('mentions.index');
+Route::get('/mentions/create', ['App\Http\Controllers\MentionController', 'create'])->name('mentions.create');
+Route::post('/mentions', ['App\Http\Controllers\MentionController', 'store'])->name('mentions.store');
+Route::get('/mentions/{mention}', ['App\Http\Controllers\MentionController', 'show'])->name('mentions.show');
+Route::get('/mentions/{mention}/edit', ['App\Http\Controllers\MentionController', 'edit'])->name('mentions.edit');
+Route::patch('/mentions/{mention}', ['App\Http\Controllers\MentionController', 'update'])->name('mentions.update');
+Route::delete('/mentions/{mention}', ['App\Http\Controllers\MentionController', 'destroy'])->name('mentions.destroy');
+
+/**Route des parcours */
 Route::get('/parcours', ['App\Http\Controllers\ParcoursController', 'index'])->name('parcours.index');
+Route::get('/parcours/create', ['App\Http\Controllers\ParcoursController', 'create'])->name('parcours.create');
+Route::post('/parcours', ['App\Http\Controllers\ParcoursController', 'store'])->name('parcours.store');
+Route::get('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'show'])->name('parcours.show');
+Route::get('/parcours/{parcour}/edit', ['App\Http\Controllers\ParcoursController', 'edit'])->name('parcours.edit');
+Route::patch('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'update'])->name('parcours.update');
+Route::delete('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'destroy'])->name('parcours.destroy');
+
 Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
