@@ -56,7 +56,17 @@ Route::get('/parcours/{parcour}/edit', ['App\Http\Controllers\ParcoursController
 Route::patch('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'update'])->name('parcours.update');
 Route::delete('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'destroy'])->name('parcours.destroy');
 
+/**Route pour les niveaux */
 Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
+Route::get('/niveaux/create', ['App\Http\Controllers\NiveauController', 'create'])->name('niveaux.create');
+Route::post('/niveaux', ['App\Http\Controllers\NiveauController', 'store'])->name('niveaux.store');
+Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'show'])->name('niveaux.show');
+Route::get('/niveaux/{niveau}/edit', ['App\Http\Controllers\NiveauController', 'edit'])->name('niveaux.edit');
+Route::patch('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
+Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'destroy'])->name('niveaux.destroy');
+
+
+
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
