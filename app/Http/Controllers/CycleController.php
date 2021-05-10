@@ -48,7 +48,7 @@ class CycleController extends Controller
             'abreviation' => $request->input('abreviation')
         ]);
 
-        return redirect()->route('cycles.index')->with('success', 'Le cycle a été ajouté avec success !');
+        return redirect()->route('config.cycles.index')->with('success', 'Le cycle a été ajouté avec success !');
     }
 
     /**
@@ -92,7 +92,7 @@ class CycleController extends Controller
             'abreviation' => $request->input('abreviation')
         ]);
 
-        return redirect()->route('cycles.index')->with('success', 'Le cycle a été mise a jour !!!');
+        return redirect()->route('config.cycles.index')->with('success', 'Le cycle a été mise a jour !!!');
     }
 
     /**

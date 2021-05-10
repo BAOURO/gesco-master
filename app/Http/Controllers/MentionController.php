@@ -15,7 +15,7 @@ class MentionController extends Controller
     public function index()
     {
         $mentions = Mention::all();
-        return view('mentions.index', compact('mentions'));
+        return view('config.mentions.index', compact('mentions'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MentionController extends Controller
      */
     public function create()
     {
-        return view('mentions.create');
+        return view('config.mentions.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class MentionController extends Controller
         Mention::firstOrCreate(
             $request->all()
         );
-        return redirect()->route('mentions.index')->with('success', 'La mention a été ajouté avec success !!!');
+        return redirect()->route('config.mentions.index')->with('success', 'La mention a été ajouté avec success !!!');
     }
 
     /**
@@ -55,7 +55,7 @@ class MentionController extends Controller
      */
     public function show(Mention $mention)
     {
-        return view('mentions.show', compact('mention'));
+        return view('config.mentions.show', compact('mention'));
     }
 
     /**
@@ -66,7 +66,7 @@ class MentionController extends Controller
      */
     public function edit(Mention $mention)
     {
-        return view('mentions.edit', compact('mention'));
+        return view('config.mentions.edit', compact('mention'));
     }
 
     /**
