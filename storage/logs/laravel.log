@@ -21006,3 +21006,189 @@ Did you mean one of these?
 #53 /home/prakas/Documents/gesco-master/server.php(21): require_once('/home/prakas/Do...')
 #54 {main}
 "} 
+[2021-05-10 09:35:22] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../nesbot/carbon/src/Carbon/Carbon.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nesbot/carbon/src/Carbon/Carbon.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Carbon\\\\Carbon')
+#4 C:\\laragon\\www\\gesco-master\\vendor\
+esbot\\carbon\\src\\Carbon\\Laravel\\ServiceProvider.php(40): spl_autoload_call('Carbon\\\\Carbon')
+#5 C:\\laragon\\www\\gesco-master\\vendor\
+esbot\\carbon\\src\\Carbon\\Laravel\\ServiceProvider.php(20): Carbon\\Laravel\\ServiceProvider->updateLocale()
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Carbon\\Laravel\\ServiceProvider->boot()
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(914): Illuminate\\Container\\Container->call(Array)
+#12 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(895): Illuminate\\Foundation\\Application->bootProvider(Object(Carbon\\Laravel\\ServiceProvider))
+#13 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Carbon\\Laravel\\ServiceProvider), 22)
+#14 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(896): array_walk(Array, Object(Closure))
+#15 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#16 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#17 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#18 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#19 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 {main}
+"} 
+[2021-05-10 09:35:26] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../nesbot/carbon/src/Carbon/Carbon.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nesbot/carbon/src/Carbon/Carbon.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Carbon\\\\Carbon')
+#4 C:\\laragon\\www\\gesco-master\\vendor\
+esbot\\carbon\\src\\Carbon\\Laravel\\ServiceProvider.php(40): spl_autoload_call('Carbon\\\\Carbon')
+#5 C:\\laragon\\www\\gesco-master\\vendor\
+esbot\\carbon\\src\\Carbon\\Laravel\\ServiceProvider.php(20): Carbon\\Laravel\\ServiceProvider->updateLocale()
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Carbon\\Laravel\\ServiceProvider->boot()
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(914): Illuminate\\Container\\Container->call(Array)
+#12 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(895): Illuminate\\Foundation\\Application->bootProvider(Object(Carbon\\Laravel\\ServiceProvider))
+#13 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Carbon\\Laravel\\ServiceProvider), 22)
+#14 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(896): array_walk(Array, Object(Closure))
+#15 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#16 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#17 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#18 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#19 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 {main}
+"} 
+[2021-05-10 09:35:32] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Carbon\\\\Laravel\\\\...')
+#4 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(735): spl_autoload_call('Carbon\\\\Laravel\\\\...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(669): Illuminate\\Foundation\\Application->resolveProvider('Carbon\\\\Laravel\\\\...')
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Carbon\\\\Laravel\\\\...')
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(649): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
+[2021-05-10 09:35:32] local.ERROR: Uncaught ReflectionException: Class translator does not exist in C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php:833
+Stack trace:
+#0 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php(833): ReflectionClass->__construct('translator')
+#1 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php(714): Illuminate\Container\Container->build('translator')
+#2 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(841): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php(652): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(826): Illuminate\Container\Container->make('translator', Array)
+#5 C:\laragon\www\gesco-master\vendor\laravel\framework {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class translator does not exist in C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:833
+Stack trace:
+#0 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(833): ReflectionClass->__construct('translator')
+#1 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(714): Illuminate\\Container\\Container->build('translator')
+#2 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(841): Illuminate\\Container\\Container->resolve('translator', Array, true)
+#3 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(652): Illuminate\\Foundation\\Application->resolve('translator', Array)
+#4 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(826): Illuminate\\Container\\Container->make('translator', Array)
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework at C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:835)
+[stacktrace]
+#0 {main}
+"} 
+[2021-05-10 09:35:47] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../facade/ignition/src/IgnitionServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../facade/ignition/src/IgnitionServiceProvider.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Facade\\\\Ignition...')
+#4 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(735): spl_autoload_call('Facade\\\\Ignition...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(669): Illuminate\\Foundation\\Application->resolveProvider('Facade\\\\Ignition...')
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Facade\\\\Ignition...')
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(649): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
+[2021-05-10 09:36:20] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../nunomaduro/collision/src/Adapters/Laravel/Commands/TestCommand.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nunomaduro/collision/src/Adapters/Laravel/Commands/TestCommand.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('NunoMaduro\\\\Coll...')
+#4 [internal function]: spl_autoload_call('NunoMaduro\\\\Coll...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(833): ReflectionClass->__construct('NunoMaduro\\\\Coll...')
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(714): Illuminate\\Container\\Container->build('NunoMaduro\\\\Coll...')
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(841): Illuminate\\Container\\Container->resolve('NunoMaduro\\\\Coll...', Array, true)
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(652): Illuminate\\Foundation\\Application->resolve('NunoMaduro\\\\Coll...', Array)
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(826): Illuminate\\Container\\Container->make('NunoMaduro\\\\Coll...', Array)
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(260): Illuminate\\Foundation\\Application->make('NunoMaduro\\\\Coll...')
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(274): Illuminate\\Console\\Application->resolve('NunoMaduro\\\\Coll...')
+#12 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(396): Illuminate\\Console\\Application->resolveCommands(Array)
+#13 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(151): Illuminate\\Support\\ServiceProvider->Illuminate\\Support\\{closure}(Object(Illuminate\\Console\\Application))
+#14 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(74): Illuminate\\Console\\Application->bootstrap()
+#15 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(330): Illuminate\\Console\\Application->__construct(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Events\\Dispatcher), '8.40.0')
+#16 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->getArtisan()
+#17 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 {main}
+"} 
+[2021-05-10 09:36:20] local.ERROR: Uncaught ErrorException: include(C:\laragon\www\gesco-master\vendor\composer/../nunomaduro/collision/src/Adapters/Laravel/IgnitionSolutionsRepository.php): failed to open stream: No such file or directory in C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php:444
+Stack trace:
+#0 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(444): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'include(C:\\lara...', 'C:\\laragon\\www\\...', 444, Array)
+#1 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(444): include()
+#2 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\laragon\\www\\...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('NunoMaduro\\Coll...')
+#4 C:\laragon\www\gesco-master\vendor\nunomaduro\collision\src\Adapters\Laravel\CollisionServiceProvider.php(50): spl_autoload_call('NunoMaduro\\Coll...')
+#5 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php(829) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ErrorException: include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nunomaduro/collision/src/Adapters/Laravel/IgnitionSolutionsRepository.php): failed to open stream: No such file or directory in C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444
+Stack trace:
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('NunoMaduro\\\\Coll...')
+#4 C:\\laragon\\www\\gesco-master\\vendor\
+unomaduro\\collision\\src\\Adapters\\Laravel\\CollisionServiceProvider.php(50): spl_autoload_call('NunoMaduro\\\\Coll...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(829) at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 {main}
+"} 
+[2021-05-10 09:36:20] local.ERROR: include(C:\laragon\www\gesco-master\vendor\composer/../nunomaduro/collision/src/Adapters/Laravel/Commands/TestCommand.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nunomaduro/collision/src/Adapters/Laravel/Commands/TestCommand.php): failed to open stream: No such file or directory at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('NunoMaduro\\\\Coll...')
+#4 [internal function]: spl_autoload_call('NunoMaduro\\\\Coll...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(833): ReflectionClass->__construct('NunoMaduro\\\\Coll...')
+#6 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(714): Illuminate\\Container\\Container->build('NunoMaduro\\\\Coll...')
+#7 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(841): Illuminate\\Container\\Container->resolve('NunoMaduro\\\\Coll...', Array, true)
+#8 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(652): Illuminate\\Foundation\\Application->resolve('NunoMaduro\\\\Coll...', Array)
+#9 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(826): Illuminate\\Container\\Container->make('NunoMaduro\\\\Coll...', Array)
+#10 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(260): Illuminate\\Foundation\\Application->make('NunoMaduro\\\\Coll...')
+#11 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(274): Illuminate\\Console\\Application->resolve('NunoMaduro\\\\Coll...')
+#12 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(396): Illuminate\\Console\\Application->resolveCommands(Array)
+#13 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(151): Illuminate\\Support\\ServiceProvider->Illuminate\\Support\\{closure}(Object(Illuminate\\Console\\Application))
+#14 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(74): Illuminate\\Console\\Application->bootstrap()
+#15 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(330): Illuminate\\Console\\Application->__construct(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Events\\Dispatcher), '8.40.0')
+#16 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->getArtisan()
+#17 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 {main}
+"} 
+[2021-05-10 09:36:20] local.ERROR: Uncaught ErrorException: include(C:\laragon\www\gesco-master\vendor\composer/../nunomaduro/collision/src/Adapters/Laravel/IgnitionSolutionsRepository.php): failed to open stream: No such file or directory in C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php:444
+Stack trace:
+#0 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(444): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'include(C:\\lara...', 'C:\\laragon\\www\\...', 444, Array)
+#1 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(444): include()
+#2 C:\laragon\www\gesco-master\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\laragon\\www\\...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('NunoMaduro\\Coll...')
+#4 C:\laragon\www\gesco-master\vendor\nunomaduro\collision\src\Adapters\Laravel\CollisionServiceProvider.php(50): spl_autoload_call('NunoMaduro\\Coll...')
+#5 C:\laragon\www\gesco-master\vendor\laravel\framework\src\Illuminate\Container\Container.php(829) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ErrorException: include(C:\\laragon\\www\\gesco-master\\vendor\\composer/../nunomaduro/collision/src/Adapters/Laravel/IgnitionSolutionsRepository.php): failed to open stream: No such file or directory in C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444
+Stack trace:
+#0 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\lara...', 'C:\\\\laragon\\\\www\\\\...', 444, Array)
+#1 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(444): include()
+#2 C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('NunoMaduro\\\\Coll...')
+#4 C:\\laragon\\www\\gesco-master\\vendor\
+unomaduro\\collision\\src\\Adapters\\Laravel\\CollisionServiceProvider.php(50): spl_autoload_call('NunoMaduro\\\\Coll...')
+#5 C:\\laragon\\www\\gesco-master\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(829) at C:\\laragon\\www\\gesco-master\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 {main}
+"} 

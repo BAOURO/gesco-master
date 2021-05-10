@@ -21,8 +21,10 @@
     <link href="{{ asset('vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/datatables/css/dataTables.responsive.css') }}" rel="stylesheet">
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
+    @livewireStyles
 </head>
 
 <body id="page-top">
@@ -78,5 +80,6 @@
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/js/dataTables.responsive.js') }}"></script>
     <script src="{{ asset('vendor/datatables/js/dataTables.bootstrap.min.js') }}"></script>
+    @livewireScripts
 </body>
 </html>
