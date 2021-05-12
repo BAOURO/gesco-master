@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cycle;
 use App\Models\Mention;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class MentionController extends Controller
      */
     public function index()
     {
-        $mentions = Mention::all();
-        return view('config.mentions.index', compact('mentions'));
+        $mentions = Mention::paginate(5);
+        $cycles = Cycle::all();
+        return view('config.mentions.index', compact('mentions', 'cycles'));
     }
 
     /**
@@ -25,7 +27,8 @@ class MentionController extends Controller
      */
     public function create()
     {
-        return view('config.mentions.create');
+        $cycles = Cycle::all();
+        return view('config.mentions.create', compact('cycles'));
     }
 
     /**
@@ -41,10 +44,14 @@ class MentionController extends Controller
             'abreviation' => 'required|string|min:3',
             'cycle_id' => 'required|integer'
         ]);
-        Mention::firstOrCreate(
-            $request->all()
-        );
-        return redirect()->route('config.mentions.index')->with('success', 'La mention a été ajouté avec success !!!');
+
+        Mention::firstOrCreate([
+            'nom' => $request->input('nom'),
+            'abreviation' => $request->input('abreviation'),
+            'cycle_id' => $request->input('cycle_id')
+        ]);
+
+        return redirect()->route('mentions.index')->with('success', 'La mention a été ajouté avec success !!!');
     }
 
     /**
@@ -78,7 +85,19 @@ class MentionController extends Controller
      */
     public function update(Request $request, Mention $mention)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required|string|min:3',
+            'cycle_id' => 'required|integer'
+        ]);
+
+        $mention->update([
+            'nom' => $request->input('nom_mention'),
+            'abreviation' => $request->input('abreviation_mention'),
+            'cycle_id' => $request->input('cycle_id')
+        ]);
+
+        return redirect()->route('mentions.index')->with('success', 'La mention a été modifié avec success !!!');
     }
 
     /**
@@ -90,6 +109,6 @@ class MentionController extends Controller
     public function destroy(Mention $mention)
     {
         $mention->delete();
-        return redirect()->back();
+        return back()->with('success', 'La mention a été supprimé !!!');
     }
 }

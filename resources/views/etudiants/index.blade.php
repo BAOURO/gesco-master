@@ -3,7 +3,7 @@
 @section('main-content')
 
     <div class="container">
-        @livewire('etudiants.add-etudiant')
+        @livewire('etudiants.list-etudiant')
     </div>
     
 @endsection

@@ -1,6 +1,7 @@
 <div class="card">
-    <form action="{{ route('annees.store') }}" method="post">
+    <form action="{{ route('annees.update') }}" method="post">
         @csrf
+        @method('PATCH')
         <div class="row">
             <div class="col-lg-4">
                 <div class="form-group">
@@ -15,6 +16,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <button type="submit" class="btn btn-success">Modifier</button>
     </form>
 </div>

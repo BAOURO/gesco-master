@@ -3,15 +3,16 @@
 @section('main-content')
     <div class="container">
         <div class="row">
+
             <div class="col-lg-4">
                 @include('config.cycles.create')
             </div>
+
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Cycles
                     </div>
-                    <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -30,10 +31,13 @@
                                         <td>{{$cycle->nom}}</td>
                                         <td>{{$cycle->abreviation}}</td>
                                         <td>
-                                            
-                                            <button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i></button>
+                                            <button type="button" class="btn btn-primary btn-circle">
+                                                <a href="{{ route('cycles.show', $cycle) }}" >
+                                                    <i class="fa fa-list"></i>
+                                                </a>
+                                            </button>
                                             <button type="button" class="btn btn-info btn-circle">
-                                                <a href="{{ route('cycles.edit', $cycle) }}"">
+                                                <a href="{{ route('cycles.edit', $cycle) }}" >
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </button>
@@ -51,11 +55,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.table-responsive -->
                     </div>
-                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel -->
+            </div>
+
         </div>
     </div>
 @endsection

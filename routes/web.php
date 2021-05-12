@@ -65,20 +65,27 @@ Route::get('/niveaux/{niveau}/edit', ['App\Http\Controllers\NiveauController', '
 Route::patch('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
 Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'destroy'])->name('niveaux.destroy');
 
+/**Route pour les etudiants */
+Route::get('/etudiants', ['App\Http\Controllers\EtudiantController', 'index'])->name('etudiants.index');
+Route::get('/etudiants/create', ['App\Http\Controllers\EtudiantController', 'create'])->name('etudiants.create');
+Route::post('/etudiants', ['App\Http\Controllers\EtudiantController', 'store'])->name('etudiants.store');
+Route::get('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'show'])->name('etudiants.show');
+Route::get('/etudiants/{etudiant}/edit', ['App\Http\Controllers\EtudiantController', 'edit'])->name('etudiants.edit');
+Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'update'])->name('etudiants.update');
+Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
 
+/**Route des annees academiques */
+Route::get('/annees', '\App\Http\Controllers\AnneeController@index')->name('annees.index');
+Route::get('/annees/create', '\App\Http\Controllers\AnneeController@create')->name('annees.create');
+Route::post('/annees', '\App\Http\Controllers\AnneeController@store')->name('annees.store');
+Route::get('/annees/{annee}', '\App\Http\Controllers\AnneeController@show')->name('annees.show');
+Route::get('/annees/{annee}/edit', '\App\Http\Controllers\AnneeController@edit')->name('annees.edit');
+Route::patch('/annees/{annee}', '\App\Http\Controllers\AnneeController@update')->name('annees.update');
+Route::delete('/annees/{annee}', '\App\Http\Controllers\AnneeController@destroy')->name('annees.destroy');
 
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
-Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
-Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
-
-//gestion des annees academiques
-Route::get('/annees_create', '\App\Http\Controllers\AnneeController@index')->name('annees.index');
-Route::get('/list_annees', '\App\Http\Controllers\AnneeController@show')->name('annees.list');
-Route::post('/annees_create', '\App\Http\Controllers\AnneeController@store')->name('annees.create');
+//Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
+//Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
 
 
 
-
-/*Route::resource('/pays', App\Http\Controllers\PaysController::class);
-Route::resource('/regions', App\Http\Controllers\RegionController::class);
-Route::resource('/departements', App\Http\Controllers\DepartementController::class);*/

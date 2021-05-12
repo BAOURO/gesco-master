@@ -2,20 +2,18 @@
 
 @section('main-content')
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Mentions</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+        <div class="col-lg-12">
+            <h1 class="page-header">Mentions</h1>
         </div>
-        <!-- /.row -->
+
         <div class="row">
+
             <div class="col-lg-4">
-                @include('mentions.create')
+                @include('config.mentions.create')
             </div>
+
             <div class="col-lg-8">
                 <div class="panel panel-default">
-                    <!-- /.panel-heading -->
                     <div class="panel-body">
                         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
@@ -35,23 +33,36 @@
                                     <td>{{$mention->abreviation}}</td>
                                     <td>{{$mention->cycle->nom}}</td>
                                     <td class="center">
-                                        <button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i></button>
-                                        <button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>
-                                        <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
+                                        <button type="button" class="btn btn-info btn-circle">
+                                            <a href="{{ route('mentions.show', $mention) }}" >
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-circle">
+                                            <a href="{{ route('mentions.edit', $mention) }}" >
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-circle">
+                                            <form method="POST" action="{{ route('mentions.destroy', $mention) }}" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" hidden="hidden">
+                                            </form>
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <!-- /.table-responsive -->
+                        {{   $mentions->links() }}
                     </div>
                     <!-- /.panel-body -->
                 </div>
-                <!-- /.panel -->
             </div>
-            <!-- /.col-lg-12 -->
+            
         </div>
-        <!-- /.row -->
     </div>
 @endsection
 

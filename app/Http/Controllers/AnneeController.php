@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annee;
 use Illuminate\Http\Request;
-use App\Models\AnneeAcademiques;
-use Illuminate\Support\Facades\DB;
 
 class AnneeController extends Controller
 {
@@ -15,8 +14,8 @@ class AnneeController extends Controller
      */
     public function index()
     {
-        //
-        return view('annees.create');
+        $annees = Annee::paginate();
+        return view('annees.index', compact('annees'));
     }
 
     /**
@@ -26,7 +25,7 @@ class AnneeController extends Controller
      */
     public function create()
     {
-        //
+        return view('annees.create');
     }
 
     /**
@@ -37,60 +36,72 @@ class AnneeController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('annee_academiques')->insert([
-            'annee' => $request->input('annee')
+        $request->validate([
+            'annee_debut' => 'required',
+            'annee_fin' => 'required'
         ]);
-        //
-        //$a = AnneeAcademiques::create();
-        //$a->annee = $request->input('annee');
-        //$a->save();
-        return redirect('list_annees');
+
+        Annee::firstOrCreate([
+            'annee_debut' => $request->input('annee_debut'),
+            'annee_fin' => $request->input('annee_fin')
+        ]);
+
+        return redirect()->route('annees.index')->with('success', 'L\'Année a été ajouté avec success !!!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Annee  $annee
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Annee $annee)
     {
-        //
-        $annees = AnneeAcademiques::paginate(10);
-        return view('annees.list', compact('annees'));
+        return view('annees.show', compact('annee'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Annee  $annee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Annee $annee)
     {
-        //
+        return view('annees.edit', compact('annee'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Annee  $annee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Annee $annee)
     {
-        //
+        $request->validate([
+            'annee_debut' => 'required',
+            'annee_fin' => 'required'
+        ]);
+
+        $annee->update([
+            'annee_debut' => $request->input('annee_debut'),
+            'annee_fin' => $request->input('annee_fin')
+        ]);
+
+        return redirect()->route('annees.index')->with('success', 'L\'Année a été modifié avec success !!!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Annee  $annee
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Annee $annee)
     {
-        //
+        $annee->delete();
+        return back()->with('success', 'L\'Année a été supprimé avec success !!!');
     }
 }
