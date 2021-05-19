@@ -43,6 +43,10 @@ Route::get('/annees_create', '\App\Http\Controllers\AnneeController@index')->nam
 Route::get('/list_annees', '\App\Http\Controllers\AnneeController@show')->name('annees.list');
 Route::post('/annees_create', '\App\Http\Controllers\AnneeController@store')->name('annees.create');
 
+//gestion des enseignants
+Route::get('/enseignants_create', '\App\Http\Controllers\EnseignantsController@create')->name('enseignants.index');
+Route::get('/list_enseignants', '\App\Http\Controllers\EnseignantsController@show')->name('enseignants.list');
+Route::post('/enseignants_create', '\App\Http\Controllers\EnseignantsController@store')->name('enseignants.create');
 
 
 
