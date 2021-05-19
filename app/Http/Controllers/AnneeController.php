@@ -14,8 +14,8 @@ class AnneeController extends Controller
      */
     public function index()
     {
-        $annees = Annee::paginate();
-        return view('annees.index', compact('annees'));
+        $annees = Annee::paginate(5);
+        return view('config.annees.index', compact('annees'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AnneeController extends Controller
      */
     public function create()
     {
-        return view('annees.create');
+        return view('config.annees.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class AnneeController extends Controller
      */
     public function show(Annee $annee)
     {
-        return view('annees.show', compact('annee'));
+        return view('config.annees.show', compact('annee'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AnneeController extends Controller
      */
     public function edit(Annee $annee)
     {
-        return view('annees.edit', compact('annee'));
+        return view('config.annees.edit', compact('annee'));
     }
 
     /**

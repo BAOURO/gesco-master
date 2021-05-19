@@ -75,13 +75,13 @@ Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController'
 Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
 
 /**Route des annees academiques */
-Route::get('/annees', '\App\Http\Controllers\AnneeController@index')->name('annees.index');
-Route::get('/annees/create', '\App\Http\Controllers\AnneeController@create')->name('annees.create');
-Route::post('/annees', '\App\Http\Controllers\AnneeController@store')->name('annees.store');
-Route::get('/annees/{annee}', '\App\Http\Controllers\AnneeController@show')->name('annees.show');
-Route::get('/annees/{annee}/edit', '\App\Http\Controllers\AnneeController@edit')->name('annees.edit');
-Route::patch('/annees/{annee}', '\App\Http\Controllers\AnneeController@update')->name('annees.update');
-Route::delete('/annees/{annee}', '\App\Http\Controllers\AnneeController@destroy')->name('annees.destroy');
+Route::get('/annees', ['App\Http\Controllers\AnneeController', 'index'])->name('annees.index');
+Route::get('/annees/create', ['App\Http\Controllers\AnneeController', 'create'])->name('annees.create');
+Route::post('/annees', ['App\Http\Controllers\AnneeController', 'store'])->name('annees.store');
+Route::get('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'show'])->name('annees.show');
+Route::get('/annees/{annee}/edit', ['App\Http\Controllers\AnneeController', 'edit'])->name('annees.edit');
+Route::patch('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'update'])->name('annees.update');
+Route::delete('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'destroy'])->name('annees.destroy');
 
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
