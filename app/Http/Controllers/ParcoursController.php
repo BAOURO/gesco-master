@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mention;
 use App\Models\Parcours;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ParcoursController extends Controller
      */
     public function index()
     {
-        //
+        $parcours = Parcours::paginate(5);
+        $mentions = Mention::all();
+        return view('config.parcours.index', compact('parcours', 'mentions'));
     }
 
     /**
@@ -24,7 +27,8 @@ class ParcoursController extends Controller
      */
     public function create()
     {
-        //
+        $mentions = Mention::all();
+        return view('config.parcours.create', compact('mentions'));
     }
 
     /**
@@ -35,7 +39,19 @@ class ParcoursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required|string|min:3',
+            'mention_id' => 'required|integer'
+        ]);
+
+        Parcours::firstOrCreate([
+            'nom' => $request->input('nom'),
+            'abreviation' => $request->input('abreviation'),
+            'mention_id' => $request->input('mention_id')
+        ]);
+
+        return redirect()->route('parcours.index')->with('success', 'Le parcours a été ajouté avec success !!!');
     }
 
     /**
@@ -46,7 +62,7 @@ class ParcoursController extends Controller
      */
     public function show(Parcours $parcours)
     {
-        //
+        return view('config.parcours.show', compact('parcours'));
     }
 
     /**
@@ -57,7 +73,8 @@ class ParcoursController extends Controller
      */
     public function edit(Parcours $parcours)
     {
-        //
+        $mentions = Mention::all();
+        return view('config.parcours.edit', compact('parcours', 'mentions'));
     }
 
     /**
@@ -69,7 +86,19 @@ class ParcoursController extends Controller
      */
     public function update(Request $request, Parcours $parcours)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'abreviation' => 'required|string|min:3',
+            'mention_id' => 'required|integer'
+        ]);
+
+        $parcours->update([
+            'nom' => $request->input('nom'),
+            'abreviation' => $request->input('abreviation'),
+            'mention_id' => $request->input('mention_id')
+        ]);
+
+        return redirect()->route('parcours.index')->with('success', 'Le parcours a été Modifié avec success !!!');
     }
 
     /**
@@ -80,6 +109,7 @@ class ParcoursController extends Controller
      */
     public function destroy(Parcours $parcours)
     {
-        //
+        $parcours->delete();
+        return back()->with('success', 'Le parcours a été supprimé !!!');
     }
 }

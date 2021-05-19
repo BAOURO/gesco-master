@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnneeAcademiquesTable extends Migration
+class CreateAnneesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateAnneeAcademiquesTable extends Migration
      */
     public function up()
     {
-        Schema::create('annee_academiques', function (Blueprint $table) {
+        Schema::create('annees', function (Blueprint $table) {
             $table->id();
-            $table->string('annee');
+            $table->year('annee_debut');
+            $table->year('annee_fin');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateAnneeAcademiquesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('annee_academiques');
+        Schema::dropIfExists('annees');
     }
 }

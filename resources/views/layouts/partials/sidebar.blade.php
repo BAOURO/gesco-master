@@ -30,7 +30,9 @@
             <span>{{ __('Profile') }}</span>
         </a>
     </li>
+   
 
+<<<<<<< HEAD
     <!-- Nav Item - About -->
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">
@@ -55,63 +57,54 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#etud"
             aria-expanded="true" aria-controls="collapsePages">
+=======
+    <li class="nav-item {{ Nav::isRoute('etudiants.index') }}">
+        <a class="nav-link" href="{{ route('etudiants.index') }}">
+>>>>>>> 7312b69d2bca0f53a3391bafe6fcb62ccc9ae2e1
             <i class="fas fa-fw fa-folder"></i>
-            <span>Etudiants</span>
+            <span>{{ __('Etudiants') }}</span>
         </a>
-        <div id="etud" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Ajouter</a>
-                <a class="collapse-item" href="{{ route('inscriptions.niveau') }}">Inscription niveau</a>
-                <a class="collapse-item" href="forgot-password.html">Inscription Evaluation</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#annee"
-            aria-expanded="true" aria-controls="collapsePages">
+
+    <li class="nav-item {{ Nav::isRoute('annees.index') }}">
+        <a class="nav-link" href="{{ route('annees.index') }}">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Annees Academiques</span>
+            <span>{{ __('Annees') }}</span>
         </a>
-        <div id="annee" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('annees.index') }}">Ajouter</a>
-                <a class="collapse-item" href="{{ route('annees.list') }}">Liste</a>
-                <div class="collapse-divider"></div>
-            </div>
-        </div>
     </li>
+
     <li class="nav-item {{ Nav::isRoute('cycles.index') }}">
         <a class="nav-link" href="{{ route('cycles.index') }}">
             <i class="fas fa-fw fa-briefcase "></i>
             <span>{{ __('Cycles') }}</span>
         </a>
     </li>
+
     <li class="nav-item {{ Nav::isRoute('mentions.index') }}">
         <a class="nav-link" href="{{route('mentions.index')}}">
             <i class="fas fa-fw fa-hands-helping"></i>
             <span>{{ __('Mentions') }}</span>
         </a>
     </li>
+
     <li class="nav-item {{ Nav::isRoute('parcours.index') }}">
         <a class="nav-link" href="{{route('parcours.index')}}">
             <i class="fas fa-fw fa-sitemap"></i>
             <span>{{ __('Parcours') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
+
+  {{--  <li class="nav-item {{ Nav::isRoute('niveau') }}">
         <a class="nav-link" href="{{route('niveaux.index')}}">
             <i class="fas fa-fw fa-building-o "></i>
             <span>{{ __('Niveaux') }}</span>
         </a>
-    </li>
-    <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
-        <a class="nav-link" href="{{route('notes.index')}}">
-            <i class="fas fa-fw fa-list"></i>
-            <span>{{ __('Notes') }}</span>
+    </li> --}}
+
+    <li class="nav-item {{ Nav::isRoute('about') }}">
+        <a class="nav-link" href="{{ route('about') }}">
+            <i class="fas fa-fw fa-hands-helping"></i>
+            <span>{{ __('A propos') }}</span>
         </a>
     </li>
 
