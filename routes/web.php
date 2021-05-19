@@ -36,7 +36,7 @@ Route::post('/cycles', ['App\Http\Controllers\CycleController', 'store'])->name(
 Route::get('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'show'])->name('cycles.show');
 Route::get('/cycles/{cycle}/edit', ['App\Http\Controllers\CycleController', 'edit'])->name('cycles.edit');
 Route::patch('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'update'])->name('cycles.update');
-Route::delete('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'destroy'])->name('cycles.destroy');
+Route::get('/cycles/{cycle}', ['App\Http\Controllers\CycleController', 'destroy'])->name('cycles.destroy');
 
 /**Route des mentions */
 Route::get('/mentions', ['App\Http\Controllers\MentionController', 'index'])->name('mentions.index');
@@ -83,16 +83,16 @@ Route::get('/annees/{annee}/edit', ['App\Http\Controllers\AnneeController', 'edi
 Route::patch('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'update'])->name('annees.update');
 Route::delete('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'destroy'])->name('annees.destroy');
 
-<<<<<<< HEAD
+
 //gestion des enseignants
 Route::get('/enseignants_create', '\App\Http\Controllers\EnseignantsController@create')->name('enseignants.index');
 Route::get('/list_enseignants', '\App\Http\Controllers\EnseignantsController@show')->name('enseignants.list');
 Route::post('/enseignants_create', '\App\Http\Controllers\EnseignantsController@store')->name('enseignants.create');
-=======
+
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 //Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
->>>>>>> 7312b69d2bca0f53a3391bafe6fcb62ccc9ae2e1
+
 
 
 

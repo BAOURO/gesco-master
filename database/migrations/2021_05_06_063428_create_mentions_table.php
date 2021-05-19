@@ -17,7 +17,7 @@ class CreateMentionsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('abreviation');
-            $table->foreignId('cycle_id')->constrained();
+            $table->foreignId('cycle_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

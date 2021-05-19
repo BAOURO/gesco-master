@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 class CycleController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -103,6 +112,7 @@ class CycleController extends Controller
      */
     public function destroy(Cycle $cycle)
     {
+        $cycle->mentions->detach();
         $cycle->delete();
         return back()->with('success', 'le cycle a été supprimé avec success !!!');
     }
