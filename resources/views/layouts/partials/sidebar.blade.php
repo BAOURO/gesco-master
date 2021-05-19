@@ -32,7 +32,6 @@
     </li>
    
 
-<<<<<<< HEAD
     <!-- Nav Item - About -->
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">
@@ -57,10 +56,8 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#etud"
             aria-expanded="true" aria-controls="collapsePages">
-=======
     <li class="nav-item {{ Nav::isRoute('etudiants.index') }}">
         <a class="nav-link" href="{{ route('etudiants.index') }}">
->>>>>>> 7312b69d2bca0f53a3391bafe6fcb62ccc9ae2e1
             <i class="fas fa-fw fa-folder"></i>
             <span>{{ __('Etudiants') }}</span>
         </a>
@@ -94,12 +91,12 @@
         </a>
     </li>
 
-  {{--  <li class="nav-item {{ Nav::isRoute('niveau') }}">
+    <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
         <a class="nav-link" href="{{route('niveaux.index')}}">
-            <i class="fas fa-fw fa-building-o "></i>
+            <i class="fas fa-fw fa-building-o"></i>
             <span>{{ __('Niveaux') }}</span>
         </a>
-    </li> --}}
+    </li>
 
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">
