@@ -60,7 +60,7 @@ Route::delete('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController',
 Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'index'])->name('niveaux.index');
 Route::get('/niveaux/create', ['App\Http\Controllers\NiveauController', 'create'])->name('niveaux.create');
 Route::post('/niveaux', ['App\Http\Controllers\NiveauController', 'store'])->name('niveaux.store');
-Route::get('/niveaux', ['App\Http\Controllers\NiveauController', 'show'])->name('niveaux.show');
+Route::get('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'show'])->name('niveaux.show');
 Route::get('/niveaux/{niveau}/edit', ['App\Http\Controllers\NiveauController', 'edit'])->name('niveaux.edit');
 Route::patch('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
 Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'destroy'])->name('niveaux.destroy');

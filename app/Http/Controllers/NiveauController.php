@@ -11,14 +11,24 @@ use App\Models\Parcours;
 class NiveauController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $niveaux = Niveau::paginate();
-        return view('config.niveaux.index', compact('niveaux'));
+        $niveaux = Niveau::all();
+        $parcours = Parcours::all();
+        return view('config.niveaux.index', compact('niveaux', 'parcours'));
     }
 
     /**
@@ -28,7 +38,7 @@ class NiveauController extends Controller
      */
     public function create()
     {
-        $parcours = Parcours::all();
+         $parcours = Parcours::all();
         return view('config.niveaux.create', compact('parcours'));
     }
 
