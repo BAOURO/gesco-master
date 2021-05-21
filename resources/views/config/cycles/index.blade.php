@@ -32,11 +32,6 @@
                                         <td>{{$cycle->nom}}</td>
                                         <td>{{$cycle->abreviation}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary btn-circle">
-                                                <a href="{{ route('cycles.show', $cycle) }}" >
-                                                    <i class="fa fa-list"></i>
-                                                </a>
-                                            </button>
                                             <span class='btn btn-info btn-circle' data-toggle='modal' data-target='#cycle' id='{{$cycle->id}}'>
                                                 <i class="fa fa-edit"></i>
                                             </span>

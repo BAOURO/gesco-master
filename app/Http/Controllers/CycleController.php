@@ -112,7 +112,7 @@ class CycleController extends Controller
      */
     public function destroy(Cycle $cycle)
     {
-        $cycle->mentions->detach();
+        //$cycle->mentions->detach();
         $cycle->delete();
         return back()->with('success', 'le cycle a été supprimé avec success !!!');
     }
