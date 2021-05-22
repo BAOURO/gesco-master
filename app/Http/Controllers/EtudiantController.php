@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Models\Pays;
+use App\Models\Region;
+use App\Models\Cycle;
+use App\Models\Mention;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -14,8 +18,11 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $etudiants = Etudiant::all();
-        return view('etudiants.index', compact('etudiants'));
+        $pays = Pays::all();
+        $regions = Region::all();
+        $cycles = Cycle::all();
+        $mentions = Mention::all();
+        return view('config.etudiants.index', compact('pays', 'regions', 'cycles', 'mentions'));
     }
 
     /**

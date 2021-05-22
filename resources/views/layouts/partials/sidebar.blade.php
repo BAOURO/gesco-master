@@ -30,19 +30,7 @@
             <span>{{ __('Profile') }}</span>
         </a>
     </li>
-   
-
-    <!-- Nav Item - About -->
-    <li class="nav-item {{ Nav::isRoute('about') }}">
-        <a class="nav-link" href="{{ route('about') }}">
-            <i class="fas fa-fw fa-hands-helping"></i>
-            <span>{{ __('About') }}</span>
-        </a>
-    </li>
     
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#etud"
-            aria-expanded="true" aria-controls="collapsePages">
     <li class="nav-item {{ Nav::isRoute('enseignants.index') }}">
         <a class="nav-link" href="{{ route('enseignants.index') }}">
             <i class="fas fa-fw fa-folder"></i>
@@ -61,7 +49,7 @@
             <span>{{ __('Etudiants') }}</span>
         </a>
     </li>
-
+    
     <li class="nav-item {{ Nav::isRoute('annees.index') }}">
         <a class="nav-link" href="{{ route('annees.index') }}">
             <i class="fas fa-fw fa-folder"></i>
@@ -71,28 +59,28 @@
 
     <li class="nav-item {{ Nav::isRoute('cycles.index') }}">
         <a class="nav-link" href="{{ route('cycles.index') }}">
-            <i class="fas fa-fw fa-briefcase "></i>
+            <i class="fas fa-fw fa-folder "></i>
             <span>{{ __('Cycles') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Nav::isRoute('mentions.index') }}">
         <a class="nav-link" href="{{route('mentions.index')}}">
-            <i class="fas fa-fw fa-hands-helping"></i>
+            <i class="fas fa-fw fa-folder"></i>
             <span>{{ __('Mentions') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Nav::isRoute('parcours.index') }}">
         <a class="nav-link" href="{{route('parcours.index')}}">
-            <i class="fas fa-fw fa-sitemap"></i>
+            <i class="fas fa-fw fa-folder"></i>
             <span>{{ __('Parcours') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Nav::isRoute('niveaux.index') }}">
         <a class="nav-link" href="{{route('niveaux.index')}}">
-            <i class="fas fa-fw fa-building-o"></i>
+            <i class="fas fa-fw fa-folder"></i>
             <span>{{ __('Niveaux') }}</span>
         </a>
     </li>
