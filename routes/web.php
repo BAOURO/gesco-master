@@ -53,7 +53,7 @@ Route::get('/parcours/create', ['App\Http\Controllers\ParcoursController', 'crea
 Route::post('/parcours', ['App\Http\Controllers\ParcoursController', 'store'])->name('parcours.store');
 Route::get('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'show'])->name('parcours.show');
 Route::get('/parcours/{parcour}/edit', ['App\Http\Controllers\ParcoursController', 'edit'])->name('parcours.edit');
-Route::patch('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'update'])->name('parcours.update');
+Route::post('/parcours/update/{parcour}', ['App\Http\Controllers\ParcoursController', 'update'])->name('parcours.update');
 Route::delete('/parcours/{parcour}', ['App\Http\Controllers\ParcoursController', 'destroy'])->name('parcours.destroy');
 
 /**Route pour les niveaux */
@@ -84,10 +84,24 @@ Route::patch('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'update
 Route::delete('/annees/{annee}', ['App\Http\Controllers\AnneeController', 'destroy'])->name('annees.destroy');
 
 
-//gestion des enseignants
-Route::get('/enseignants_create', '\App\Http\Controllers\EnseignantsController@create')->name('enseignants.index');
-Route::get('/list_enseignants', '\App\Http\Controllers\EnseignantsController@show')->name('enseignants.list');
-Route::post('/enseignants_create', '\App\Http\Controllers\EnseignantsController@store')->name('enseignants.create');
+/**Route des Enseignants */
+Route::get('/enseignants', ['App\Http\Controllers\EnseignantController', 'index'])->name('enseignants.index');
+Route::get('/enseignants/create', ['App\Http\Controllers\EnseignantController', 'create'])->name('enseignants.create');
+Route::post('/enseignants', ['App\Http\Controllers\EnseignantController', 'store'])->name('enseignants.store');
+Route::get('/enseignants/{enseignant}', ['App\Http\Controllers\EnseignantController', 'show'])->name('enseignants.show');
+Route::get('/enseignants/{enseignant}/edit', ['App\Http\Controllers\EnseignantController', 'edit'])->name('enseignants.edit');
+Route::post('/enseignants/update/{enseignant}', ['App\Http\Controllers\EnseignantController', 'update'])->name('enseignants.update');
+Route::delete('/enseignants/{enseignant}', ['App\Http\Controllers\EnseignantController', 'destroy'])->name('enseignants.destroy');
+
+//Route Unites d'enseignements
+Route::get('/unites', ['App\Http\Controllers\UniteController', 'index'])->name('unites.index');
+Route::get('/unites/create', ['App\Http\Controllers\UniteController', 'create'])->name('unites.create');
+Route::post('/unites', ['App\Http\Controllers\UniteController', 'store'])->name('unites.store');
+Route::get('/unites/{unite}', ['App\Http\Controllers\UniteController', 'show'])->name('unites.show');
+Route::get('/unites/{unite}/edit', ['App\Http\Controllers\UniteController', 'edit'])->name('unites.edit');
+Route::post('/unites/update/{unite}', ['App\Http\Controllers\UniteController', 'update'])->name('unites.update');
+Route::delete('/unites/{unite}', ['App\Http\Controllers\UniteController', 'destroy'])->name('unites.destroy');
+
 
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');

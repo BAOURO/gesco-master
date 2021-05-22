@@ -19,6 +19,9 @@ class CreateUnitesTable extends Migration
             $table->integer('credit');
             $table->integer('coef');
             $table->integer('nb_heure');
+            $table->integer('tpe');
+            $table->integer('cc');
+            $table->integer('tp');
             $table->timestamps();
         });
     }

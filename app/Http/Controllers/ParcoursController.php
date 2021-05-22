@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 class ParcoursController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -84,14 +93,15 @@ class ParcoursController extends Controller
      * @param  \App\Models\Parcours  $parcours
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Parcours $parcours)
+    public function update(Request $request, $parcours)
     {
-        $request->validate([
-            'nom' => 'required|string|min:3',
-            'abreviation' => 'required|string|min:3',
-            'mention_id' => 'required|integer'
-        ]);
-
+        $data = $request->all();
+        $p = Parcours::where('id', $parcours)->first();
+        $p->nom = $data['nom'];
+        $p->abreviation = $data['abreviation'];
+        $p->save();
+        //print_r($data); die();
+        /*
         $parcours->update([
             'nom' => $request->input('nom'),
             'abreviation' => $request->input('abreviation'),
@@ -99,6 +109,20 @@ class ParcoursController extends Controller
         ]);
 
         return redirect()->route('parcours.index')->with('success', 'Le parcours a été Modifié avec success !!!');
+        */
+        /*$validator = Validator::make($request->all(), [
+            'nom' => 'required',
+            'abreviation' => 'required',
+        ]);*/
+        //if ($validator->passes()) {
+
+            // Store Data in DATABASE from HERE 
+
+            return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
+            
+        //}
+
+        //return response()->json(['error'=>$validator->errors()]);
     }
 
     /**

@@ -9,6 +9,6 @@ class Unites extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'intitule', 'credit', 'coef', 'nb_heure'
+        'intitule', 'credit', 'coef', 'nb_heure', 'tpe', 'tp', 'cc'
     ];
 }

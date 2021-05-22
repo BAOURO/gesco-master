@@ -23,7 +23,8 @@ class EnseignantController extends Controller
     public function index()
     {
         //
-        return view('enseignants.index');
+        $enseignants = Enseignants::paginate(10);
+        return view('config.enseignants.index', compact('enseignants'));
 
     }
 
@@ -57,7 +58,7 @@ class EnseignantController extends Controller
         //$a = AnneeAcademiques::create();
         //$a->annee = $request->input('annee');
         //$a->save();
-        return redirect('list_enseignants');
+        return redirect()->route('enseignants.index');
     }
 
     /**
@@ -91,9 +92,18 @@ class EnseignantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $enseignant)
     {
         //
+        $data = $request->all();
+        //print_r($data); die();
+        $enseignant = Enseignants::where('id', $enseignant)->first();
+        $enseignant->noms_prenoms = $data['noms_prenoms'];
+        $enseignant->titre = $data['titre'];
+        $enseignant->domaine = $data['domaine'];
+        $enseignant->grade = $data['grade'];
+        $enseignant->save();
+        return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
     }
 
     /**
