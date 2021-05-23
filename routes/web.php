@@ -76,7 +76,7 @@ Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController'
 Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
 Route::post('/etudiants.getetudiants', ['App\Http\Controllers\EtudiantController', 'getEtudiants'])->name('etudiants.getetudiants');
 
-
+Route::post("etudiants.import", ['App\Http\Controllers\EtudiantController', 'import_excel'])->name('excel.import');
 /**Route des annees academiques */
 Route::get('/annees', ['App\Http\Controllers\AnneeController', 'index'])->name('annees.index');
 Route::get('/annees/create', ['App\Http\Controllers\AnneeController', 'create'])->name('annees.create');

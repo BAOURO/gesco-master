@@ -10,7 +10,8 @@ use App\Models\Mention;
 use App\Models\Parcours;
 use App\Models\Niveau;
 use Illuminate\Http\Request;
-
+use Spatie\SimpleExcel\SimpleExcelWriter;
+use Spatie\SimpleExcel\SimpleExcelReader;
 class EtudiantController extends Controller
 {
     /**
@@ -183,5 +184,41 @@ class EtudiantController extends Controller
         return response()->json(['etudiants'=>$etudiants]);
     }
 
-    
+    public function import_excel (Request $request) {
+
+        // 1. Validation du fichier uploadé. Extension ".xlsx" autorisée
+        $this->validate($request, [
+            'fichier' => 'bail|required|file|mimes:xlsx'
+        ]);
+
+        // 2. On déplace le fichier uploadé vers le dossier "public" pour le lire
+        $fichier = $request->fichier->move(public_path(), $request->fichier->hashName());
+
+        // 3. $reader : L'instance Spatie\SimpleExcel\SimpleExcelReader
+        $reader = SimpleExcelReader::create($fichier);
+
+        // On récupère le contenu (les lignes) du fichier
+        $rows = $reader->getRows();
+
+        // $rows est une Illuminate\Support\LazyCollection
+        $etudiants = $rows->toArray();
+        // 4. On insère toutes les lignes dans la base de données
+        foreach ($etudiants as $key) {
+            # code...
+            $pays = Pays::where('nom', $key['pays_id'])->first();
+            $region = Region::where('code', $key['region_id'])->first();
+            $cycle = Cycle::where('abreviation', $key['cycle_id'])->first();
+            $mention = Mention::where('abreviation', $key['mention_id'])->first();
+            $key['pays_id'] = $pays->id;
+            $key['region_id'] = $region->id;
+            $key['cycle_id'] = $cycle->id;
+            $key['mention_id'] = $mention->id;
+            Etudiant::firstOrCreate($key);
+            //print_r($pays);
+        }
+        return redirect()->route('etudiants.liste');
+
+    }
+
+
 }
