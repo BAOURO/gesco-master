@@ -85,6 +85,13 @@
         </a>
     </li>
 
+    <li class="nav-item {{ Nav::isRoute('inscriptions.index') }}">
+        <a class="nav-link" href="{{route('inscriptions.index')}}">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>{{ __('Inscriptions') }}</span>
+        </a>
+    </li>
+
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">
             <i class="fas fa-fw fa-hands-helping"></i>

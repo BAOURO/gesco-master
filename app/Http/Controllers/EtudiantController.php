@@ -184,6 +184,15 @@ class EtudiantController extends Controller
         return response()->json(['etudiants'=>$etudiants]);
     }
 
+    public function getEtudiant_mention(Request $request)
+    {
+        # code...
+        $data = $request->except('_token');
+        $etudiants = Etudiant::where('cycle_id', $data['cycle'])
+                        ->where('mention_id', $data['mention'])->get();
+        return response()->json(['etudiants'=>$etudiants]);
+    }
+
     public function import_excel (Request $request) {
 
         // 1. Validation du fichier uploadé. Extension ".xlsx" autorisée
@@ -213,9 +222,39 @@ class EtudiantController extends Controller
             $key['region_id'] = $region->id;
             $key['cycle_id'] = $cycle->id;
             $key['mention_id'] = $mention->id;
-            Etudiant::firstOrCreate($key);
-            //print_r($pays);
+            //print_r($cycle->id);
+            $et = Etudiant::insert([
+                'cycle_id'=>$cycle->id,
+                'mention_id'=>$mention->id,
+                'matricule' => $key['matricule'],
+                'nom' => $key['nom'], 
+                'prenom' => $key['prenom'], 
+                'date_naissance'  => $key['date_naissance'], 
+                'lieu_naissance' => $key['lieu_naissance'],
+                'sexe'  => $key['sexe'], 
+                'telephone'  => $key['telephone'], 
+                'situation_mat'  => $key['situation_mat'], 
+                'profession'  => $key['profession'],
+                'pays_id'  => $pays->id,
+                'region_id'  => $region->id, 
+                'nom_pere'  => $key['nom_pere'],
+                'tel_pere'  => $key['tel_pere'], 
+                'adresse_pere' => $key['adresse_pere'], 
+                'profession_pere' => $key['profession_pere'],
+                'residence_parent' => $key['residence_parent'], 
+                'nom_mere' => $key['nom_mere'], 
+                'tel_mere' => $key['tel_mere'], 
+                'adresse_mere' => $key['adresse_mere'], 
+                'profession_mere' => $key['profession_mere'], 
+                'nom_tuteur' => $key['nom_tuteur'], 
+                'tel_tuteur' => $key['tel_tuteur'], 
+                'adresse_tuteur' => $key['adresse_tuteur'], 
+                'profession_tuteur' => $key['profession_tuteur']
+            ]);
+            //print_r($key);
+            echo "<br>";
         }
+        //die();
         return redirect()->route('etudiants.liste');
 
     }
