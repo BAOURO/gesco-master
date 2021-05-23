@@ -18,13 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/datatables/css/dataTables.responsive.css') }}" rel="stylesheet">
-    
-    <!-- Styles form steps-->
-    <link href="{{ asset('assets/css/smart_wizard.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/smart_wizard_theme_dots.min.css') }}" rel="stylesheet" type="text/css" />
-    
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/sweetalert2.all.js') }}" defer></script>
@@ -83,10 +77,11 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/js/dataTables.responsive.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/js/dataTables.bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/jquery.smartWizard.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('js/datatables-demo.js') }}"></script>
     @livewireScripts
 </body>
 </html>

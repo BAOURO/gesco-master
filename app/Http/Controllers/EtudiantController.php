@@ -7,10 +7,21 @@ use App\Models\Pays;
 use App\Models\Region;
 use App\Models\Cycle;
 use App\Models\Mention;
+use App\Models\Parcours;
+use App\Models\Niveau;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,66 +54,10 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'matricule' => 'string|max:8',
-            'nom' => 'required|string|min:3', 
-            'prenom' => 'string|nullable', 
-            'date_naissance'  => 'date|nullable', 
-            'lieu_naissance' => 'string|nullable',
-            'sexe'  => 'string|nullable', 
-            'telephone'  => 'integer|nullable', 
-            'situation_mat'  => 'boolean', 
-            'profession'  => 'string|nullable',
-            'pays_id'  => 'integer|nullable',
-            'region_id'  => 'integer|nullable', 
-            'departement_id'  => 'integer|nullable',
-            'nom_pere'  => 'string|nullable',
-            'tel_pere'  => 'integer|nullable', 
-            'adresse_pere' => 'string|nullable', 
-            'profession_pere' => 'string|nullable',
-            'residence_pere' => 'string|nullable', 
-            'nom_mere' => 'string|nullable', 
-            'tel_mere' => 'integer|nullable', 
-            'adresse_mere' => 'string|nullable', 
-            'profession_mere' => 'string|nullable', 
-            'residence_mere' => 'string|nullable',
-            'nom_tituaire' => 'string|nullable', 
-            'tel_tituaire' => 'integer|nullable', 
-            'adresse_tituaire' => 'string|nullable', 
-            'profession_tituaire' => 'string|nullable', 
-            'residence_tituaire' => 'string|nullable'
-        ]);
-        Etudiant::firstOrCreate([
-            'matricule' => $request->input('matricule'),
-            'nom' => $request->input('nom'), 
-            'prenom' => $request->input('prenom'), 
-            'date_naissance'  => $request->input('date_naissance'), 
-            'lieu_naissance' => $request->input('lieu_naissance'),
-            'sexe'  => $request->input('sexe'), 
-            'telephone'  => $request->input('telephone'), 
-            'situation_mat'  => $request->input('situation_mat'), 
-            'profession'  => $request->input('profession'),
-            'pays_id'  => $request->input('pays_id'),
-            'region_id'  => $request->input('region_id'), 
-            'departement_id'  => $request->input('departement_id'),
-            'nom_pere'  => $request->input('nom_pere'),
-            'tel_pere'  => $request->input('tel_pere'), 
-            'adresse_pere' => $request->input('adresse_pere'), 
-            'profession_pere' => $request->input('profession_pere'),
-            'residence_pere' => $request->input('residence_pere'), 
-            'nom_mere' => $request->input('nom_mere'), 
-            'tel_mere' => $request->input('tel_mere'), 
-            'adresse_mere' => $request->input('adresse_mere'), 
-            'profession_mere' => $request->input('profession_mere'), 
-            'residence_mere' => $request->input('residence_mere'),
-            'nom_tituaire' => $request->input('nom_tituaire'), 
-            'tel_tituaire' => $request->input('tel_tituaire'), 
-            'adresse_tituaire' => $request->input('adresse_tituaire'), 
-            'profession_tituaire' => $request->input('profession_tituaire'), 
-            'residence_tituaire' => $request->input('residence_tituaire')
-        ]);
+        //print_r();die();
+        Etudiant::firstOrCreate($request->except('_token'));
 
-        return redirect()->route('etudiants.index')->with('success', 'L\'Etudiant a été ajouté avec success !!!');
+        return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
     }
 
     /**
@@ -159,11 +114,11 @@ class EtudiantController extends Controller
             'adresse_mere' => 'string|nullable', 
             'profession_mere' => 'string|nullable', 
             'residence_mere' => 'string|nullable',
-            'nom_tituaire' => 'string|nullable', 
-            'tel_tituaire' => 'integer|nullable', 
-            'adresse_tituaire' => 'string|nullable', 
-            'profession_tituaire' => 'string|nullable', 
-            'residence_tituaire' => 'string|nullable'
+            'nom_tuteur' => 'string|nullable', 
+            'tel_tuteur' => 'integer|nullable', 
+            'adresse_tuteur' => 'string|nullable', 
+            'profession_tuteur' => 'string|nullable', 
+            'residence_tuteur' => 'string|nullable'
         ]);
         
         $etudiant->update([
@@ -189,11 +144,11 @@ class EtudiantController extends Controller
             'adresse_mere' => $request->input('adresse_mere'), 
             'profession_mere' => $request->input('profession_mere'), 
             'residence_mere' => $request->input('residence_mere'),
-            'nom_tituaire' => $request->input('nom_tituaire'), 
-            'tel_tituaire' => $request->input('tel_tituaire'), 
-            'adresse_tituaire' => $request->input('adresse_tituaire'), 
-            'profession_tituaire' => $request->input('profession_tituaire'), 
-            'residence_tituaire' => $request->input('residence_tituaire')
+            'nom_tuteur' => $request->input('nom_tuteur'), 
+            'tel_tuteur' => $request->input('tel_tuteur'), 
+            'adresse_tuteur' => $request->input('adresse_tuteur'), 
+            'profession_tuteur' => $request->input('profession_tuteur'), 
+            'residence_tuteur' => $request->input('residence_tuteur')
         ]);
 
         return redirect()->route('etudiants.index')->with('success', 'L\'Etudiant a été modifié avec success !!!');
@@ -210,4 +165,23 @@ class EtudiantController extends Controller
         $etudiant->delete();
         return redirect()->back()->with('success', 'L\'étudiant a été supprimé !!!');
     }
+
+    public function liste()
+    {
+        # code...
+        $mentions = Mention::all();
+        $parcours = Parcours::all();
+        $niveaux = Niveau::all();
+        //$etudiants = [];
+        return view('config.etudiants.liste', compact('niveaux', 'parcours', 'mentions'));
+    }
+
+    public function getEtudiants()
+    {
+        # code...
+        $etudiants = Etudiant::all();
+        return response()->json(['etudiants'=>$etudiants]);
+    }
+
+    
 }

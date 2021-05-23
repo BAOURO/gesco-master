@@ -68,11 +68,14 @@ Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'de
 /**Route pour les etudiants */
 Route::get('/etudiants', ['App\Http\Controllers\EtudiantController', 'index'])->name('etudiants.index');
 Route::get('/etudiants/create', ['App\Http\Controllers\EtudiantController', 'create'])->name('etudiants.create');
-Route::post('/etudiants', ['App\Http\Controllers\EtudiantController', 'store'])->name('etudiants.store');
+Route::post('/etudiants/store', ['App\Http\Controllers\EtudiantController', 'store'])->name('etudiants.store');
 Route::get('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'show'])->name('etudiants.show');
 Route::get('/etudiants/{etudiant}/edit', ['App\Http\Controllers\EtudiantController', 'edit'])->name('etudiants.edit');
+Route::get('/etudiants.liste', ['App\Http\Controllers\EtudiantController', 'liste'])->name('etudiants.liste');
 Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'update'])->name('etudiants.update');
 Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
+Route::post('/etudiants.getetudiants', ['App\Http\Controllers\EtudiantController', 'getEtudiants'])->name('etudiants.getetudiants');
+
 
 /**Route des annees academiques */
 Route::get('/annees', ['App\Http\Controllers\AnneeController', 'index'])->name('annees.index');

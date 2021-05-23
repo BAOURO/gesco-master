@@ -21,9 +21,9 @@ class CreateEtudiantsTable extends Migration
             $table->date('date_naissance');
             $table->string('lieu_naissance');
             $table->enum('sexe', ['Masculin', 'Feminin']);
-            $table->integer('telephone')->nullable();
-            $table->boolean('situation_mat')->default('0');
-            $table->integer('profession')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('situation_mat')->nullable();
+            $table->string('profession')->nullable();
             $table->foreignId('pays_id')->constrained()->nullable();
             $table->foreignId('region_id')->constrained()->nullable();
             $table->foreignId('departement_id')->constrained()->nullable();
@@ -31,17 +31,17 @@ class CreateEtudiantsTable extends Migration
             $table->string('tel_pere')->nullable();
             $table->string('adresse_pere')->nullable();
             $table->string('profession_pere')->nullable();
-            $table->string('residence_pere')->nullable();
+            $table->string('residence_parent')->nullable();
             $table->string('nom_mere')->nullable();
             $table->string('tel_mere')->nullable();
             $table->string('adresse_mere')->nullable();
             $table->string('profession_mere')->nullable();
-            $table->string('residence_mere')->nullable();
-            $table->string('nom_tituaire')->nullable();
-            $table->string('tel_tituaire')->nullable();
-            $table->string('adresse_tituaire')->nullable();
-            $table->string('profession_tituaire')->nullable();
-            $table->string('residence_tituaire')->nullable();
+            $table->string('nom_tuteur')->nullable();
+            $table->string('tel_tuteur')->nullable();
+            $table->string('adresse_tuteur')->nullable();
+            $table->string('profession_tuteur')->nullable();
+            $table->foreignId('cycle_id')->constrained()->nullable();
+            $table->foreignId('mention_id')->constrained()->nullable();
             $table->timestamps();
         });
     }
