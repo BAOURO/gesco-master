@@ -100,25 +100,7 @@ class ParcoursController extends Controller
         $p->nom = $data['nom'];
         $p->abreviation = $data['abreviation'];
         $p->save();
-        //print_r($data); die();
-        /*
-        $parcours->update([
-            'nom' => $request->input('nom'),
-            'abreviation' => $request->input('abreviation'),
-            'mention_id' => $request->input('mention_id')
-        ]);
-
-        return redirect()->route('parcours.index')->with('success', 'Le parcours a été Modifié avec success !!!');
-        */
-        /*$validator = Validator::make($request->all(), [
-            'nom' => 'required',
-            'abreviation' => 'required',
-        ]);*/
-        //if ($validator->passes()) {
-
-            // Store Data in DATABASE from HERE 
-
-            return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
+        return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
             
         //}
 

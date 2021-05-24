@@ -26,7 +26,7 @@ class NiveauController extends Controller
      */
     public function index()
     {
-        $niveaux = Niveau::all();
+        $niveaux = Niveau::paginate(10);
         $parcours = Parcours::all();
         return view('config.niveaux.index', compact('niveaux', 'parcours'));
     }
@@ -95,21 +95,14 @@ class NiveauController extends Controller
      * @param  \App\Models\Niveau  $niveau
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Niveau $niveau)
+    public function update(Request $request, $niveau)
     {
-        $request->validate([
-            'nom' => 'required|string|min:3',
-            'abreviation' => 'required|string|min:3',
-            'parcour_id' => 'required|integer'
-        ]);
-
-        $niveau->update([
-            'nom' => $request->input('nom'),
-            'abreviation' => $request->input('abreviation'),
-            'parcour_id' => $request->input('parcour_id')
-        ]);
-
-        return redirect()->route('config.niveaux.index')->with('success', 'Le Niveau a été mise a jour !!!');
+        $data = $request->all();
+        $p = Niveau::where('id', $niveau)->first();
+        $p->nom = $data['nom'];
+        $p->abreviation = $data['abreviation'];
+        $p->save();
+        return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
     }
 
     /**

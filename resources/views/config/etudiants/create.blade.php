@@ -6,8 +6,9 @@
 		    			<h4 class="card-title">Nouveau Etudiant</h4>
 		    		</div>
 		    		<div class="col-md-3">
-		    			<a href="" class="btn btn-success">
-		    			<i class="fa fa-plus"></i>Enregistrer par excel</a>
+		    			<span class='btn btn-success' data-toggle='modal' data-target='#excel'>
+                            <i class="fa fa-plus"></i>Enregistrer par excel
+                        </span>
 		    		</div>
 		    		<div class="col-md-3">
 		    			<a href="{{ route('etudiants.liste')}}" class="btn btn-primary">
@@ -276,6 +277,33 @@
                 </form>
 		    </div>
 		</div>
+
+<div class="modal fade" id="excel" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" ></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('excel.import') }}" enctype="multipart/form-data">
+                    @csrf
+                    <p>Sélectionnez un fichier Excel (.xlsx) pour importer les données des etudiants.<br><strong>Les colonnes : </strong>name, email, phone, address</p>
+                    <div class="form-group">
+                        <input class="form-control" name="fichier" id="nom_update" type="file" required>
+                    </div>
+                  	<div class="modal-footer">
+                      <button type="submit" id="confirmer" class="btn btn-success">Valider</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                      
+                  	</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 	var pays = <?= json_encode($pays)?>;
 	var regions = <?= json_encode($regions)?>;

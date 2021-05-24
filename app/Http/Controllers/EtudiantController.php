@@ -10,7 +10,8 @@ use App\Models\Mention;
 use App\Models\Parcours;
 use App\Models\Niveau;
 use Illuminate\Http\Request;
-
+use Spatie\SimpleExcel\SimpleExcelWriter;
+use Spatie\SimpleExcel\SimpleExcelReader;
 class EtudiantController extends Controller
 {
     /**
@@ -183,5 +184,80 @@ class EtudiantController extends Controller
         return response()->json(['etudiants'=>$etudiants]);
     }
 
-    
+    public function getEtudiant_mention(Request $request)
+    {
+        # code...
+        $data = $request->except('_token');
+        $etudiants = Etudiant::where('cycle_id', $data['cycle'])
+                        ->where('mention_id', $data['mention'])->get();
+        return response()->json(['etudiants'=>$etudiants]);
+    }
+
+    public function import_excel (Request $request) {
+
+        // 1. Validation du fichier uploadé. Extension ".xlsx" autorisée
+        $this->validate($request, [
+            'fichier' => 'bail|required|file|mimes:xlsx'
+        ]);
+
+        // 2. On déplace le fichier uploadé vers le dossier "public" pour le lire
+        $fichier = $request->fichier->move(public_path(), $request->fichier->hashName());
+
+        // 3. $reader : L'instance Spatie\SimpleExcel\SimpleExcelReader
+        $reader = SimpleExcelReader::create($fichier);
+
+        // On récupère le contenu (les lignes) du fichier
+        $rows = $reader->getRows();
+
+        // $rows est une Illuminate\Support\LazyCollection
+        $etudiants = $rows->toArray();
+        // 4. On insère toutes les lignes dans la base de données
+        foreach ($etudiants as $key) {
+            # code...
+            $pays = Pays::where('nom', $key['pays_id'])->first();
+            $region = Region::where('code', $key['region_id'])->first();
+            $cycle = Cycle::where('abreviation', $key['cycle_id'])->first();
+            $mention = Mention::where('abreviation', $key['mention_id'])->first();
+            $key['pays_id'] = $pays->id;
+            $key['region_id'] = $region->id;
+            $key['cycle_id'] = $cycle->id;
+            $key['mention_id'] = $mention->id;
+            //print_r($cycle->id);
+            $et = Etudiant::insert([
+                'cycle_id'=>$cycle->id,
+                'mention_id'=>$mention->id,
+                'matricule' => $key['matricule'],
+                'nom' => $key['nom'], 
+                'prenom' => $key['prenom'], 
+                'date_naissance'  => $key['date_naissance'], 
+                'lieu_naissance' => $key['lieu_naissance'],
+                'sexe'  => $key['sexe'], 
+                'telephone'  => $key['telephone'], 
+                'situation_mat'  => $key['situation_mat'], 
+                'profession'  => $key['profession'],
+                'pays_id'  => $pays->id,
+                'region_id'  => $region->id, 
+                'nom_pere'  => $key['nom_pere'],
+                'tel_pere'  => $key['tel_pere'], 
+                'adresse_pere' => $key['adresse_pere'], 
+                'profession_pere' => $key['profession_pere'],
+                'residence_parent' => $key['residence_parent'], 
+                'nom_mere' => $key['nom_mere'], 
+                'tel_mere' => $key['tel_mere'], 
+                'adresse_mere' => $key['adresse_mere'], 
+                'profession_mere' => $key['profession_mere'], 
+                'nom_tuteur' => $key['nom_tuteur'], 
+                'tel_tuteur' => $key['tel_tuteur'], 
+                'adresse_tuteur' => $key['adresse_tuteur'], 
+                'profession_tuteur' => $key['profession_tuteur']
+            ]);
+            //print_r($key);
+            echo "<br>";
+        }
+        //die();
+        return redirect()->route('etudiants.liste');
+
+    }
+
+
 }

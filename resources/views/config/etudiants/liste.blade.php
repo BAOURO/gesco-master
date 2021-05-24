@@ -109,6 +109,36 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="etudiant" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" ></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{route('etudiants.update', 0)}}" id="formu1">
+                    @csrf
+                    <div class="form-group">
+                        <label for="nom">Nom du parcours</label>
+                        <input class="form-control" name="nom" id="nom_update" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="abreviation">Abreviation du parcours</label>
+                        <input class="form-control" name="abreviation" id="abreviation_update" type="text">
+                            </div>
+                  <div class="modal-footer">
+                      <button type="submit" id="confirmer" class="btn btn-success">Modifier</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                      
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="etudiant_show" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -242,6 +272,13 @@
         modal.find('.modal-title').text("VISUALISATION ETUDIANT")
     })
 
+	$('#etudiant_show').on('show.bs.modal', function (event)
+    {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        
+        modal.find('.modal-title').text("MODIFICATION D'UN ETUDIANT")
+    })
 
 	$('#parcours').change(function(){
 		var texte = '<option value="0">--Niveaux--</option>';
@@ -296,6 +333,7 @@
                 	texte += "<td>"+convert_date(val.date_naissance)+"</td>";
                 	texte += "<td><span class='btn btn-warning btn-circle' data-toggle='modal' data-target='#etudiant_show' id='"+val.id+"'><i class='fa fa-eye'></i></span>&ensp;&ensp;&ensp;&ensp;<span class='btn btn-info btn-circle' data-toggle='modal' data-target='#etudiant' id='"+val.id+"'><i class='fa fa-edit'></i></span></td>";
                 	texte += "</tr>";
+                	k += 1;
                 })
                 $('tbody').append(texte);
             },

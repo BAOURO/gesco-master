@@ -62,7 +62,7 @@ Route::get('/niveaux/create', ['App\Http\Controllers\NiveauController', 'create'
 Route::post('/niveaux', ['App\Http\Controllers\NiveauController', 'store'])->name('niveaux.store');
 Route::get('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'show'])->name('niveaux.show');
 Route::get('/niveaux/{niveau}/edit', ['App\Http\Controllers\NiveauController', 'edit'])->name('niveaux.edit');
-Route::patch('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
+Route::post('/niveaux/update/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
 Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'destroy'])->name('niveaux.destroy');
 
 /**Route pour les etudiants */
@@ -75,8 +75,9 @@ Route::get('/etudiants.liste', ['App\Http\Controllers\EtudiantController', 'list
 Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'update'])->name('etudiants.update');
 Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
 Route::post('/etudiants.getetudiants', ['App\Http\Controllers\EtudiantController', 'getEtudiants'])->name('etudiants.getetudiants');
+Route::post('/etudiants.getetudiant_mention', ['App\Http\Controllers\EtudiantController', 'getEtudiant_mention'])->name('etudiants.getetudiant_mention');
 
-
+Route::post("etudiants.import", ['App\Http\Controllers\EtudiantController', 'import_excel'])->name('excel.import');
 /**Route des annees academiques */
 Route::get('/annees', ['App\Http\Controllers\AnneeController', 'index'])->name('annees.index');
 Route::get('/annees/create', ['App\Http\Controllers\AnneeController', 'create'])->name('annees.create');
@@ -105,7 +106,8 @@ Route::get('/unites/{unite}/edit', ['App\Http\Controllers\UniteController', 'edi
 Route::post('/unites/update/{unite}', ['App\Http\Controllers\UniteController', 'update'])->name('unites.update');
 Route::delete('/unites/{unite}', ['App\Http\Controllers\UniteController', 'destroy'])->name('unites.destroy');
 
-
+//Route inscriptions
+Route::get('/inscriptions', ['App\Http\Controllers\InscriptionController', 'index'])->name('inscriptions.index');
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 //Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
