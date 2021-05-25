@@ -37,6 +37,12 @@
             <span>{{ __('Enseignants') }}</span>
         </a>
     </li>
+    <li class="nav-item {{ Nav::isRoute('modules.index') }}">
+        <a class="nav-link" href="{{ route('modules.index') }}">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>{{ __('Modules') }}</span>
+        </a>
+    </li>
     <li class="nav-item {{ Nav::isRoute('unites.index') }}">
         <a class="nav-link" href="{{route('unites.index')}}">
             <i class="fas fa-fw fa-folder"></i>

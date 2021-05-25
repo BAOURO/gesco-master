@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MenuItem;
 use Illuminate\Database\Seeder;
 
 class MenuItemsTableSeeder extends Seeder
