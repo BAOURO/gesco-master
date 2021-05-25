@@ -1,72 +1,71 @@
 @extends('layouts.admin')
 
 @section('main-content')
+<div class="col-md-12">
+    <h1 class="page-header">UNITES D'ENSEIGNEMENTS</h1>
+</div>
 
-    <div class="container">
-        <div class="col-lg-12">
-            <h1 class="page-header">UNITES D'ENSEIGNEMENTS</h1>
-        </div>
+<div class="row">
 
-        <div class="row">
+    <div class="col-md-5">
+        @include('config.unites.create')
+    </div>
 
-            <div class="col-lg-4">
-                @include('config.unites.create')
+    <div class="col-lg-7">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>CODE</th>
+                            <th>INTITULE</th>
+                            <th>CREDITS</th>
+                            <th>NOMBRE D'HEURE</th>
+                            <th>%TPE</th>
+                            <th>%TP</th>
+                            <th>%CC</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $k = 1 ?>
+                        @foreach ($unites as $key)
+                        <tr class="odd gradeX">
+                            <td>{{$k++}}</td>
+                            <td>{{$key->code}}</td>
+                            <td>{{$key->intitule}}</td>
+                            <td>{{$key->credit}}</td>
+                            <td>{{$key->nb_heure}}</td>
+                            <td>{{$key->tpe}}</td>
+                            <td>{{$key->tp}}</td>
+                            <td>{{$key->cc}}</td>
+                            <td class="center">
+                                <span class='btn btn-info btn-circle' data-toggle='modal' data-target='#unite' id='{{$key->id}}'>
+                                    <i class="fa fa-edit"></i>
+                                </span>
+                                <button type="button" class="btn btn-danger btn-circle">
+                                    <form method="POST" action="{{ route('unites.destroy', $key) }}" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" hidden="hidden">
+                                    </form>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+                {{   $unites->links() }}
             </div>
 
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>INTITULE</th>
-                                    <th>CREDITS</th>
-                                    <th>NOMBRE D'HEURE</th>
-                                    <th>%TPE</th>
-                                    <th>%TP</th>
-                                    <th>%CC</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $k = 1 ?>
-                                @foreach ($unites as $key)
-                                <tr class="odd gradeX">
-                                    <td>{{$k++}}</td>
-                                    <td>{{$key->intitule}}</td>
-                                    <td>{{$key->credit}}</td>
-                                    <td>{{$key->nb_heure}}</td>
-                                    <td>{{$key->tpe}}</td>
-                                    <td>{{$key->tp}}</td>
-                                    <td>{{$key->cc}}</td>
-                                    <td class="center">
-                                        <span class='btn btn-info btn-circle' data-toggle='modal' data-target='#unite' id='{{$key->id}}'>
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                        <button type="button" class="btn btn-danger btn-circle">
-                                            <form method="POST" action="{{ route('unites.destroy', $key) }}" style="display: none;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" hidden="hidden">
-                                            </form>
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <!-- /.table-responsive -->
-                        {{   $unites->links() }}
-                    </div>
-
-                    <!-- /.panel-body -->
-                </div>
-            </div>
-
+            <!-- /.panel-body -->
         </div>
     </div>
+
+</div>
 <div class="modal fade" id="unite" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -79,6 +78,10 @@
             <div class="modal-body">
                 <form method="post" action="{{route('unites.update', 0)}}" id="formu1">
                     @csrf
+                    <div class="form-group">
+                        <label for="code">CODE</label>
+                        <input class="form-control" name="code" type="text" required id="code"> 
+                    </div>
                     <div class="form-group">
                         <label for="nom">INTITULE</label>
                         <input class="form-control" name="intitule" id="intitule" type="text" required> 
@@ -137,8 +140,9 @@
         console.log(modal);
         var unites_id = button[0].id;
         var unite = search_unites(unites_id);
-        console.log(unite);
+        //console.log(unite);
         $("#intitule").val(unite.intitule);
+        $("#code").val(unite.code);
         $("#credits").val(unite.credit);
         $("#nb_heure").val(unite.nb_heure);
         $("#coef").val(unite.coef);
@@ -156,6 +160,7 @@
         //var _token = $("input[name='_token']").val();
         var donnees = {
             _token: '{{csrf_token()}}',
+            code: $("#code").val(),
             intitule: $("#intitule").val(),
             credit: $("#credits").val(),
             nb_heure: $("#nb_heure").val(),

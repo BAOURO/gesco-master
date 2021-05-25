@@ -47,6 +47,7 @@ class UniteController extends Controller
     {
         //
         $request->validate([
+            'code' => 'required|string',
             'intitule' => 'required|string',
             'credits' => 'required|integer',
             'cc' => 'required|integer',
@@ -54,7 +55,8 @@ class UniteController extends Controller
             'tp' => 'required|integer' 
         ]);
 
-        Unites::firstOrCreate([
+        Unites::insert([
+            'code' => $request->input('code'),
             'intitule' => $request->input('intitule'),
             'credit' => $request->input('credits'),
             'cc' => $request->input('cc'),
@@ -102,6 +104,7 @@ class UniteController extends Controller
         $data = $request->all();
         //print_r($data); die();
         $unite = Unites::where('id', $unite)->first();
+        $unite->code = $data['code'];
         $unite->intitule = $data['intitule'];
         $unite->credit = $data['credit'];
         $unite->nb_heure = $data['nb_heure'];

@@ -71,7 +71,9 @@ Route::get('/modules/create', ['App\Http\Controllers\ModuleController', 'create'
 Route::post('/modules', ['App\Http\Controllers\ModuleController', 'store'])->name('modules.store');
 Route::get('/modules/{niveau}', ['App\Http\Controllers\ModuleController', 'show'])->name('modules.show');
 Route::get('/modules/{niveau}/edit', ['App\Http\Controllers\ModuleController', 'edit'])->name('modules.edit');
+
 Route::post('/modules/update/{niveau}', ['App\Http\Controllers\ModuleController', 'update'])->name('modules.update');
+Route::post('/modules/getunites', ['App\Http\Controllers\ModuleController', 'getunites'])->name('modules.getunites');
 Route::delete('/modules/{niveau}', ['App\Http\Controllers\ModuleController', 'destroy'])->name('modules.destroy');
 
 /**Route pour les etudiants */
@@ -117,7 +119,16 @@ Route::delete('/unites/{unite}', ['App\Http\Controllers\UniteController', 'destr
 
 //Route inscriptions
 Route::get('/inscriptions', ['App\Http\Controllers\InscriptionController', 'index'])->name('inscriptions.index');
-Route::get('/inscriptions/ue/niveau', ['App\Http\Controllers\InscriptionController', 'ue_niveau'])->name('inscriptions.ue_niveau');
+Route::get('/inscriptions/ue.niveau', ['App\Http\Controllers\InscriptionController', 'ue_niveau'])->name('inscriptions.ue_niveau');
+Route::post('/inscriptions/ue.niveau', ['App\Http\Controllers\InscriptionController', 'ue_niveau_post'])->name('inscriptions.ue_niveau_post');
+Route::post('/inscriptions/ue.getues', ['App\Http\Controllers\InscriptionController', 'getUes'])->name('inscriptions.getues');
+Route::get('/inscriptions/ue.niveau.liste', ['App\Http\Controllers\InscriptionController', 'ue_niveau_liste'])->name('inscriptions.ue_niveau_liste');
+Route::get('/inscriptions/delete/{i}', ['App\Http\Controllers\InscriptionController', 'delete'])->name('inscriptions.delete');
+Route::get('/inscriptions/ue/modules', ['App\Http\Controllers\InscriptionController', 'ue_modules'])->name('inscriptions.ue_modules');
+Route::post('/inscriptions/ue/modules', ['App\Http\Controllers\InscriptionController', 'ue_modules_post'])->name('inscriptions.ue_modules');
+Route::post('/inscriptions/getues.niveau', ['App\Http\Controllers\InscriptionController', 'getue_niveau'])->name('inscriptions.getue_niveau');
+
+
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 //Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');
