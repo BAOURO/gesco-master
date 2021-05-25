@@ -41,8 +41,8 @@ class SubMenuItemsTableSeeder extends Seeder
         SubMenuItem::create([
             'name' => 'Niveaux',
             'link' => 'niveaux.index',
-            'status' => '',
-            'menu_item_id' => '',
+            'status' => 'enable',
+            'menu_item_id' => '1',
         ]);
         SubMenuItem::create([
             'name' => 'Pays',
