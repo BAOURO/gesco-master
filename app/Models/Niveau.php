@@ -18,4 +18,9 @@ class Niveau extends Model
     {
         return $this->belongsTo(Parcours::class);
     }
+
+    public function module()
+    {
+        return $this->hasMany(Module::class);
+    }
 }
