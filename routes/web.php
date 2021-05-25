@@ -87,8 +87,8 @@ Route::patch('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController'
 Route::delete('/etudiants/{etudiant}', ['App\Http\Controllers\EtudiantController', 'destroy'])->name('etudiants.destroy');
 Route::post('/etudiants.getetudiants', ['App\Http\Controllers\EtudiantController', 'getEtudiants'])->name('etudiants.getetudiants');
 Route::post('/etudiants.getetudiant_mention', ['App\Http\Controllers\EtudiantController', 'getEtudiant_mention'])->name('etudiants.getetudiant_mention');
-
 Route::post("etudiants.import", ['App\Http\Controllers\EtudiantController', 'import_excel'])->name('excel.import');
+
 /**Route des annees academiques */
 Route::get('/annees', ['App\Http\Controllers\AnneeController', 'index'])->name('annees.index');
 Route::get('/annees/create', ['App\Http\Controllers\AnneeController', 'create'])->name('annees.create');
@@ -135,4 +135,11 @@ Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.
 
 
 
+//Route des menus
+Route::get('/menus', ['App\Http\Controllers\MenuItemController', 'index'])->name('menus.index');
+Route::post('/menus', ['App\Http\Controllers\MenuItemController', 'store'])->name('menus.store');
+Route::post('/menus/update/{menu}', ['App\Http\Controllers\MenuItemController', 'update'])->name('menus.update');
 
+Route::get('/submenus', ['App\Http\Controllers\SubMenuItemController', 'index'])->name('submenus.index');
+Route::post('/submenus', ['App\Http\Controllers\SubMenuItemController', 'store'])->name('submenus.store');
+Route::post('/submenus/update/{submenu}', ['App\Http\Controllers\SubMenuItemController', 'update'])->name('submenus.update');

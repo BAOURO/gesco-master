@@ -35,10 +35,11 @@
                                             <span class='btn btn-info btn-circle' data-toggle='modal' data-target='#cycle' id='{{$cycle->id}}'>
                                                 <i class="fa fa-edit"></i>
                                             </span>
-                                            <a href="{{ route('cycles.destroy', $cycle) }}" class="btn btn-danger btn-circle">
-                                                
-                                                <i class="fa fa-trash"></i>
-                                            </button>
+                                            <span class="btn btn-danger btn-circle">
+                                                <a href="{{ route('cycles.destroy', $cycle) }}">   
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </span>
                                         </td>
                                     </tr>
                                     @endforeach
