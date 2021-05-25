@@ -16,6 +16,7 @@ class CreateUnitesTable extends Migration
         Schema::create('unites', function (Blueprint $table) {
             $table->id();
             $table->string('intitule');
+            $table->string('code');
             $table->integer('credit');
             $table->integer('coef');
             $table->integer('nb_heure');

@@ -57,7 +57,6 @@ class EtudiantController extends Controller
     {
         //print_r();die();
         Etudiant::firstOrCreate($request->except('_token'));
-
         return response()->json(['success'=>'Le parcours a été Modifié avec success !!!']);
     }
 
