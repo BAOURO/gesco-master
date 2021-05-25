@@ -24,4 +24,5 @@ class Parcours extends Model
     {
         return $this->hasMany(Niveau::class);
     }
+    
 }

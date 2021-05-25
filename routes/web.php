@@ -65,6 +65,15 @@ Route::get('/niveaux/{niveau}/edit', ['App\Http\Controllers\NiveauController', '
 Route::post('/niveaux/update/{niveau}', ['App\Http\Controllers\NiveauController', 'update'])->name('niveaux.update');
 Route::delete('/niveaux/{niveau}', ['App\Http\Controllers\NiveauController', 'destroy'])->name('niveaux.destroy');
 
+/**Route pour les modules d'enseignements */
+Route::get('/modules', ['App\Http\Controllers\ModuleController', 'index'])->name('modules.index');
+Route::get('/modules/create', ['App\Http\Controllers\ModuleController', 'create'])->name('modules.create');
+Route::post('/modules', ['App\Http\Controllers\ModuleController', 'store'])->name('modules.store');
+Route::get('/modules/{niveau}', ['App\Http\Controllers\ModuleController', 'show'])->name('modules.show');
+Route::get('/modules/{niveau}/edit', ['App\Http\Controllers\ModuleController', 'edit'])->name('modules.edit');
+Route::post('/modules/update/{niveau}', ['App\Http\Controllers\ModuleController', 'update'])->name('modules.update');
+Route::delete('/modules/{niveau}', ['App\Http\Controllers\ModuleController', 'destroy'])->name('modules.destroy');
+
 /**Route pour les etudiants */
 Route::get('/etudiants', ['App\Http\Controllers\EtudiantController', 'index'])->name('etudiants.index');
 Route::get('/etudiants/create', ['App\Http\Controllers\EtudiantController', 'create'])->name('etudiants.create');
@@ -108,6 +117,7 @@ Route::delete('/unites/{unite}', ['App\Http\Controllers\UniteController', 'destr
 
 //Route inscriptions
 Route::get('/inscriptions', ['App\Http\Controllers\InscriptionController', 'index'])->name('inscriptions.index');
+Route::get('/inscriptions/ue/niveau', ['App\Http\Controllers\InscriptionController', 'ue_niveau'])->name('inscriptions.ue_niveau');
 Route::get('/notes', '\App\Http\Controllers\NoteController@index')->name('notes.index');
 //Route::get('/inscriptions_niveau', '\App\Http\Controllers\NiveauController@inscriptions')->name('inscriptions.niveau');
 //Route::post('/getetudiants', '\App\Http\Controllers\EtudiantController@getEtudiants')->name('etudiants.getEtudiants');

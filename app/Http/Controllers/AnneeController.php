@@ -23,7 +23,7 @@ class AnneeController extends Controller
      */
     public function index()
     {
-        $annees = Annee::paginate(5);
+        $annees = Annee::paginate(10);
         return view('config.annees.index', compact('annees'));
     }
 
