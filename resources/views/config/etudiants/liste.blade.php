@@ -80,7 +80,6 @@
                         <th>NOMS</th>
                         <th>PRENOMS</th>
                         <th>DATE DE NAISSANCE</th>
-                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -90,21 +89,9 @@
                         <th>NOMS</th>
                         <th>PRENOMS</th>
                         <th>DATE DE NAISSANCE</th>
-                        <th>ACTION</th>
                     </tr>
                 </tfoot>
-                <tbody>
-                    <tr>
-                        <td align="center">
-                        	<i>La Liste des etudiants sera affichee ici !!!</i>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                
             </table>
         </div>
     </div>
@@ -336,6 +323,14 @@
                 	k += 1;
                 })
                 $('tbody').append(texte);
+                if ( $.fn.dataTable.isDataTable( '#dataTable' ) ) {
+                    table = $('#dataTable').DataTable();
+                }
+                else {
+                    table = $('#dataTable').DataTable( {
+                        paging: false
+                    } );
+                }
             },
             error: function(data){
                 console.log(data);

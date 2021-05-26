@@ -20,7 +20,8 @@
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.4",
         "santigarcor/laratrust": "^6.3",
-        "spatie/simple-excel": "^1.13"
+        "spatie/simple-excel": "^1.13",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

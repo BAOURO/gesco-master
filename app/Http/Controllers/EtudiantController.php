@@ -180,7 +180,7 @@ class EtudiantController extends Controller
     {
         # code...
         $etudiants = Etudiant::all();
-        return response()->json(['etudiants'=>$etudiants]);
+        return datables()->of($etudiants)->toJson();
     }
 
     public function getEtudiant_mention(Request $request)
